@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/HomePage/Home";
 import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
+import ProductDetails from "../components/Product/Details/ProductDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -19,6 +20,11 @@ const MainRoutes = () => {
     {
       link: "*",
       element: <NotFound />,
+      id: 3,
+    },
+    {
+      link: "/details",
+      element: <ProductDetails />,
       id: 3,
     },
   ];
