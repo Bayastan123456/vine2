@@ -1,27 +1,49 @@
-.product_cards{
-    display: flex;
+.productCard_container{
+    margin: 0;
+    padding: 2%;
+    width: 100vw;
     background: black;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+}
+
+.productCard_container>h2{
+    margin: 4rem 0;
+    color: white;
+    text-align: center;
+}
+
+.productCard_wrapper{
+    display: flex;
+}
+
+.sidebar{
+    margin-right: 5px;
+}
+
+.product_cards{
+    margin: 0 auto 0 0;
+    display: flex;
 }
 
 .card_item{
-    color: rgba(128, 128, 128, 0.311);
     border: 0.5px solid rgba(0, 0, 0, 0);
     min-width: 300px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: color 1.5s, border 1s ease-in;
+    transition: all 1.5s, border 1s ease-in;
     font-size: 1.5em;
-    font-stretch: narrower;
+    
 }
 
 .card_item:hover{
     border: 0.5px solid grey;
-    color: aliceblue;
-    transition: color 1.5s, border 1s ease-in;
+    transition: all 1.5s, border 1s ease-in;
+}
+
+.card_item>.absolute:hover{
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 100%);
 }
 
 .card_item>img{
@@ -48,14 +70,27 @@
     transition: border 1s ease-in, color 1s ease-in;
 }
 
-/* .card_border{
-    width: 100%;
-    height: 105%;
-    border: 0.5px solid rgba(0, 0, 0, 0);
-    border-width: 105%;
-    transition: border 1s ease-in
+/* ! slide effect for text  start*/
+.slide_wrapper{
+    position: relative;
 }
-.card_border:hover{
-    border: 0.5px solid rgba(0, 0, 0, 0);
-    transition: border 1s ease-in;
-} */
+
+.relative{
+    color: rgb(255, 255, 255);
+    transition: all 1s ease-in-out;
+}
+
+.absolute{
+  color:#323232e4;
+  position: absolute;
+  top: 0;
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 0);
+}
+
+.absolute:hover{
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 100%);
+}
+
+/* ! slide effect for text  end*/
