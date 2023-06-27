@@ -8,12 +8,12 @@
 .box1__detail {
   box-sizing: border-box;
   width: 100%;
-  height: 100vh;
+  height: 150vh;
   background-image: url(https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/10/rock-20deg.jpg) !important;
   /* background-attachment: fixed; */
   background-size: 50%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 }
 .details__box-title {
   display: flex;
@@ -26,7 +26,6 @@
 .details__img {
   width: 10vw;
   position: fixed;
-  /* transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1); */
 
   transition: 1s ease-in-out;
   z-index: 1;
@@ -67,11 +66,15 @@
 }
 
 .glav2__detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   text-align: center;
   padding-top: 60px;
 }
 .title__detail2 > h3 {
-  font-size: 50px;
+  font-size: 60px;
 }
 .title__detail2 > p {
   color: #81d8d0;
@@ -79,4 +82,79 @@
 
 .glav2__descr {
   width: 50%;
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+}
+.glav2__descr > span {
+  margin: 20px auto;
+  font-size: 20px;
+  width: 60%;
+  opacity: 0.5;
+}
+.container__btn {
+  width: 400px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center__btn {
+  width: 180px;
+  height: 50px;
+  position: absolute;
+  z-index: 3;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: rgb(0, 0, 0, 0);
+  border-radius: 50px;
+  /* border: 2px solid #222; */
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+.btn svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #91c9ff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 2s ease-in-out;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transition: 2s ease-in-out;
+  background: #109ea1;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.btn:hover span {
+  transition: 1s ease-in-out;
+  color: #fff;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
 }

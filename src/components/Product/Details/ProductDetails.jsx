@@ -40,7 +40,7 @@ const ProductDetails = () => {
             className={`box2__detail-Right ${isVisible ? "show" : ""}`}
             ref={ref}
           >
-            <h4> ANNATA 2015</h4>
+            <h4>ANNATA 2015</h4>
             <h4>SEBINO IGT</h4>
             <h4>100% BARBERA</h4>
           </div>
@@ -71,12 +71,33 @@ const ProductDetails = () => {
             intuition of vinifying this native vine in purity was born, for the
             first time in the history of the company.
           </p>
-          <p>
+          <span>
             The result is an intense ruby red wine of great class, capable of
             surprising thanks to the heady scent of red fruit and sweet spices.
-          </p>
+          </span>
         </div>
-        <button>Buy</button>
+        <div className="container__btn">
+          <div className="center__btn">
+            <button className="btn">
+              <svg
+                class="border"
+                viewBox="0 0 180 60"
+                height="60px"
+                width="180px"
+              >
+                <polyline
+                  className="bg-line"
+                  points="179,1 179,59 1,59 1,1 179,1"
+                ></polyline>
+                <polyline
+                  className="hl-line"
+                  points="179,1 179,59 1,59 1,1 179,1"
+                ></polyline>
+              </svg>
+              <span>Buy</span>
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
