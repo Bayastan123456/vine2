@@ -7,3 +7,11 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+#font_nanum{
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#font_pathway{
+  font-family: 'Pathway Extreme', sans-serif;
+}

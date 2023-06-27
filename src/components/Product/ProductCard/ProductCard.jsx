@@ -4,9 +4,9 @@ import "./ProductCard.css";
 const ProductCard = () => {
   return (
     <div className="productCard_container">
-      <h2>FRANCIACORTA</h2>
+      <h2 id="font_nanum">FRANCIACORTA</h2>
       <div className="productCard_wrapper">
-        <div className="sidebar">
+        <div className="sidebar" id="font_pathway">
           <div className="slide_wrapper">
             <div className="relative">
               <span>ALL</span>
@@ -46,7 +46,7 @@ const ProductCard = () => {
               src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/11/SelezioneBrut_2011.png"
               alt="nothing but a bottle of wine"
             />
-            <div className="slide_wrapper">
+            <div className="slide_wrapper" id="font_nanum">
               <div className="relative">
                 <h3>SELEZIONE 2011</h3>
               </div>
@@ -56,7 +56,7 @@ const ProductCard = () => {
             </div>
             <div className="card_item_text">
               {/* <h4>SOLD OUT</h4> */}
-              <h5>FRANCIACORTA DOCG</h5>
+              <h5 id="font_pathway">FRANCIACORTA DOCG</h5>
             </div>
             <button>DISCOVER</button>
           </div>
