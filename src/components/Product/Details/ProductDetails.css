@@ -24,9 +24,8 @@
   overflow: hidden;
 }
 .details__img {
-  width: 10vw;
+  width: 150px;
   position: fixed;
-
   transition: 1s ease-in-out;
   z-index: 1;
 }
@@ -38,11 +37,10 @@
 }
 
 .box2__detail {
-  height: 100vh;
+  height: 120vh;
   margin: 0 100px;
   display: flex;
   justify-content: space-between;
-  /* overflow: hidden; */
 }
 
 .box2__detail-Right {
@@ -80,6 +78,22 @@
   color: #81d8d0;
 }
 
+.box2__detail-Right > h4 {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.imgDetails {
+  width: 150px;
+}
+.box2__detail-Left > h4 {
+  display: flex;
+  justify-content: first baseline;
+  /* display: inline; */
+
+  align-items: center;
+}
+
 .glav2__descr {
   width: 50%;
   font-size: 35px;
@@ -94,13 +108,24 @@
   width: 60%;
   opacity: 0.5;
 }
+
+/* button */
+
+.btn__containerGlav {
+  position: relative;
+
+  z-index: 4;
+  width: 500px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container__btn {
   width: 400px;
   height: 60px;
   position: absolute;
-  left: 50%;
-  top: 95%;
-  transform: translate(-50%, -50%);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +166,6 @@
   transition: 2s ease-in-out;
   background: #109ea1;
   border-radius: 50px;
-  overflow: hidden;
 }
 
 .btn:hover span {
@@ -157,4 +181,76 @@
   color: white;
   font-size: 18px;
   font-weight: 600;
+}
+@media screen and (max-width: 1157px) {
+  .box2__detail-Left {
+    display: none;
+  }
+  .box1__detail {
+    background-size: 70%;
+  }
+  .glav2__descr {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .details__title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .glav2__descr {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .details__title {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .title__detail2 > h3 {
+    font-size: 50px;
+  }
+  .glav2__descr {
+    font-size: 20px;
+  }
+  .box1__detail {
+    background-size: 100%;
+  }
+  .details__img {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 581px) {
+  .title__detail2 > p {
+    display: none;
+  }
+  .glav2__descr > span {
+    display: none;
+  }
+  .details__img {
+    width: 100px;
+  }
+  .details__title {
+    letter-spacing: 10px;
+  }
+  .glav2__descr > p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  .box2__detail {
+    margin: 0 20px;
+  }
+  .box1__detail {
+    background-size: cover;
+  }
 }

@@ -1,5 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ProductDetails.css";
+import image1 from "./image/11.png";
+import image2 from "./image/2.png";
+import image3 from "./image/3.png";
+import image6 from "./image/6.png";
+import image7 from "./image/7.png";
+import image8 from "./image/8.png";
+import image9 from "./image/9.png";
+
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -40,21 +48,48 @@ const ProductDetails = () => {
             className={`box2__detail-Right ${isVisible ? "show" : ""}`}
             ref={ref}
           >
-            <h4>ANNATA 2015</h4>
-            <h4>SEBINO IGT</h4>
-            <h4>100% BARBERA</h4>
+            <h4>
+              ANNATA 2015
+              <img className="imgDetails" src={image6} alt="error" />
+            </h4>
+            <h4>
+              SEBINO IGT
+              <img className="imgDetails" src={image7} alt="error" />
+            </h4>
+            <h4>
+              100% BARBERA
+              <img className="imgDetails" src={image3} alt="error" />
+            </h4>
           </div>
           <div
             className={`box2__detail-Left ${isVisible ? "show" : ""}`}
             ref={ref}
           >
-            <h4>ROSSO</h4>
-            <h4>ALCOOL 14.5%</h4>
-            <h4>AFFINAMENTO 42 MESI IN BOTTIGLIA</h4>
-            <h4>ALCOOL 14.5%</h4>
+            <h4>
+              <img className="imgDetails" src={image1} alt="error" />
+              ROSSO
+            </h4>
+            <h4>
+              <img className="imgDetails" src={image3} alt="error" />
+              ALCOOL 14.5%
+            </h4>
+            <h4>
+              <img className="imgDetails" src={image2} alt="error" />
+              AFFINAMENTO 42 MESI IN BOTTIGLIA
+            </h4>
+            <h4>
+              <img className="imgDetails" src={image3} alt="error" />
+              ALCOOL 14.5%
+            </h4>
 
-            <h4>AFFINAMENTO IN BOTTE 36 MESI</h4>
-            <p>PRIMA FERMENTAZIONE 42 MESI IN BARRIQUE</p>
+            <h4>
+              <img className="imgDetails" src={image8} alt="error" />
+              AFFINAMENTO IN BOTTE 36 MESI
+            </h4>
+            <h4>
+              <img className="imgDetails" src={image9} alt="error" />
+              PRIMA FERMENTAZIONE 42 MESI IN BARRIQUE
+            </h4>
           </div>
         </div>
       </div>
@@ -76,26 +111,28 @@ const ProductDetails = () => {
             surprising thanks to the heady scent of red fruit and sweet spices.
           </span>
         </div>
-        <div className="container__btn">
-          <div className="center__btn">
-            <button className="btn">
-              <svg
-                class="border"
-                viewBox="0 0 180 60"
-                height="60px"
-                width="180px"
-              >
-                <polyline
-                  className="bg-line"
-                  points="179,1 179,59 1,59 1,1 179,1"
-                ></polyline>
-                <polyline
-                  className="hl-line"
-                  points="179,1 179,59 1,59 1,1 179,1"
-                ></polyline>
-              </svg>
-              <span>Buy</span>
-            </button>
+        <div className="btn__containerGlav">
+          <div className="container__btn">
+            <div className="center__btn">
+              <button className="btn">
+                <svg
+                  class="border"
+                  viewBox="0 0 180 60"
+                  height="60px"
+                  width="180px"
+                >
+                  <polyline
+                    className="bg-line"
+                    points="179,1 179,59 1,59 1,1 179,1"
+                  ></polyline>
+                  <polyline
+                    className="hl-line"
+                    points="179,1 179,59 1,59 1,1 179,1"
+                  ></polyline>
+                </svg>
+                <span>Buy</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
