@@ -44,16 +44,12 @@ const MainRoutes = () => {
     {
       link: "/details",
       element: <ProductDetails />,
-<<<<<<< HEAD
-      id: 4,
+      id: 7,
     },
     {
       link: "/admin",
       element: <AdminPage />,
-      id: 5,
-=======
-      id: 7,
->>>>>>> 266eaaf060905ea1a1f4ca8577c168f5f65224ac
+      id: 8,
     },
   ];
 
