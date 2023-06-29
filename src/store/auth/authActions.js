@@ -1,28 +1,80 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { API_AUTH } from "../../const";
+import {
+  clearErrors,
+  clearInputs,
+  setEmailError,
+  setPasswordError,
+  setUser,
+} from "./authSlice";
+import fire from "../../fire";
 
-export const register = createAsyncThunk(
-  "@auth/register",
-  async ({ formData, navigate }) => {
-    try {
-      const res = await axios.post(`${API_AUTH}users/`, formData);
-      console.log(res);
-      navigate("/login");
-    } catch (error) {
-      console.log(error.response.data);
-    }
+export const handleSignUp = createAsyncThunk(
+  "@auth/handleSignUp",
+  async (obj, { dispatch }) => {
+    dispatch(clearErrors());
+    await fire
+      .auth()
+      .createUserWithEmailAndPassword(obj.email, obj.password)
+      .then(() => {
+        obj.navigate("/login");
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            dispatch(setEmailError(err.message));
+            break;
+          case "auth/weak-password":
+            dispatch(setPasswordError(err.message));
+            break;
+        }
+      });
   }
 );
 
-export const activation = createAsyncThunk(
-  "@auth/activation",
-  async (formData) => {
-    try {
-      const res = await axios.post(`${API_AUTH}users/activation/`, formData);
-      console.log(res);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+export const handleLogin = createAsyncThunk(
+  "@auth/handleLogin",
+  async (obj, { dispatch }) => {
+    dispatch(clearErrors());
+    await fire
+      .auth()
+      .signInWithEmailAndPassword(obj.email, obj.password)
+      .then(() => {
+        obj.navigate("/");
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/user-disavled":
+          case "auth/invalid-email":
+          case "auth/user-not-found":
+            dispatch(setEmailError(err.message));
+            break;
+          case "auth/wrong-password":
+            dispatch(setPasswordError(err.message));
+            break;
+        }
+      });
+  }
+);
+
+export const authListener = createAsyncThunk(
+  "@auth/authListener",
+  async (_, { dispatch }) => {
+    await fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(clearInputs());
+        dispatch(setUser(user?.email));
+      } else {
+        dispatch(setUser(""));
+      }
+    });
+  }
+);
+
+export const handleLogout = createAsyncThunk(
+  "@auth/handleLogout",
+  async (navigate) => {
+    await fire.auth().signOut();
+    navigate("/login");
   }
 );

@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import "../Login/Login.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { register } from "../../../store/auth/authActions";
+import { handleSignUp } from "../../../store/auth/authActions";
+import { setEmail, setPassword } from "../../../store/auth/authSlice";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { email, password, emailError, passwordError } = useSelector(
+    (state) => state.auth
+  );
+  console.log(emailError);
+  const [showError, setShowError] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (!email.trim() || !username.trim() || !password.trim()) {
-      alert("Заполните поля!!!");
+    if (!email.trim() || !password.trim()) {
+      setShowError(true);
       return;
     }
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("username", username);
-    formData.append("password", password);
-    dispatch(register({ formData, navigate }));
+    let obj = {
+      email,
+      password,
+      navigate,
+    };
+    dispatch(handleSignUp(obj));
+    navigate();
   };
 
   return (
@@ -41,15 +46,48 @@ const Register = () => {
             type="text"
             placeholder="EMAIL ADRESS"
             className="modal_inp__all"
+            onChange={(e) => dispatch(setEmail(e.target.value))}
+            value={email}
           />
+          {emailError && (
+            <p
+              style={{
+                width: "80%",
+                color: "red",
+                marginBottom: "10px",
+              }}
+            >
+              {emailError}
+            </p>
+          )}
           <input
             type="password"
             placeholder="PASSWORD"
             className="modal_inp__all"
+            onChange={(e) => dispatch(setPassword(e.target.value))}
+            value={password}
           />
+          {passwordError && (
+            <p
+              style={{
+                width: "80%",
+                color: "red",
+                marginBottom: "10px",
+              }}
+            >
+              {passwordError}
+            </p>
+          )}
+          {showError ? (
+            <p style={{ color: "red" }}>Заполните все поля</p>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="modal_btn">
-          <button className="modal_btn__enter">ENTER</button>
+          <button className="modal_btn__enter" onClick={handleSubmit}>
+            ENTER
+          </button>
           <p>FORGOT PASSWORD</p>
         </div>
       </div>
