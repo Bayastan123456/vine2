@@ -28,7 +28,12 @@ const Navbar = () => {
         <img className="nav_left__glass" src={img2} alt="" />
         <img className="nav_left__bottle" src={img3} alt="" />
         {user === ADMIN ? (
-          <img className="nav_right__bottle" src={img6} alt="error" />
+          <img
+            className="nav_right__bottle"
+            src={img6}
+            alt="error"
+            onClick={() => navigate("/admin")}
+          />
         ) : (
           <></>
         )}
