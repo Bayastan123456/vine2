@@ -4,6 +4,7 @@ import Home from "../pages/HomePage/Home";
 import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
 import ProductDetails from "../components/Product/Details/ProductDetails";
+import AdminPage from "../pages/AdminPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -25,7 +26,12 @@ const MainRoutes = () => {
     {
       link: "/details",
       element: <ProductDetails />,
-      id: 3,
+      id: 4,
+    },
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 5,
     },
   ];
 
