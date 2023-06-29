@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/HomePage/Home";
 import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
+import Login from "../components/auth/Login/Login";
+import Register from "../components/auth/Register/Register";
+import Activation from "../components/auth/Activation/Activation";
 import ProductDetails from "../components/Product/Details/ProductDetails";
 import AdminPage from "../pages/AdminPage";
 
@@ -24,14 +27,33 @@ const MainRoutes = () => {
       id: 3,
     },
     {
+      link: "/login",
+      element: <Login />,
+      id: 4,
+    },
+    {
+      link: "/register",
+      element: <Register />,
+      id: 5,
+    },
+    {
+      link: "/activation",
+      element: <Activation />,
+      id: 6,
+    },
+    {
       link: "/details",
       element: <ProductDetails />,
+<<<<<<< HEAD
       id: 4,
     },
     {
       link: "/admin",
       element: <AdminPage />,
       id: 5,
+=======
+      id: 7,
+>>>>>>> 266eaaf060905ea1a1f4ca8577c168f5f65224ac
     },
   ];
 

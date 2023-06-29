@@ -6,4 +6,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nanum Myeongjo", serif;
+}
+#font_nanum {
+  font-family: "Nanum Myeongjo", serif;
+}
+
+#font_pathway {
+  font-family: "Pathway Extreme", sans-serif;
 }
