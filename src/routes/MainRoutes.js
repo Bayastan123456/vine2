@@ -7,6 +7,7 @@ import Login from "../components/auth/Login/Login";
 import Register from "../components/auth/Register/Register";
 import Activation from "../components/auth/Activation/Activation";
 import ProductDetails from "../components/Product/Details/ProductDetails";
+import AdminPage from "../pages/AdminPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -43,7 +44,16 @@ const MainRoutes = () => {
     {
       link: "/details",
       element: <ProductDetails />,
+<<<<<<< HEAD
+      id: 4,
+    },
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 5,
+=======
       id: 7,
+>>>>>>> 266eaaf060905ea1a1f4ca8577c168f5f65224ac
     },
   ];
 
