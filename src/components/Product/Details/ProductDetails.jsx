@@ -111,27 +111,77 @@ const ProductDetails = () => {
             surprising thanks to the heady scent of red fruit and sweet spices.
           </span>
         </div>
-        <div className="btn__containerGlav">
-          <div className="container__btn">
-            <div className="center__btn">
-              <button className="btn">
-                <svg
-                  class="border"
-                  viewBox="0 0 180 60"
-                  height="60px"
-                  width="180px"
-                >
-                  <polyline
-                    className="bg-line"
-                    points="179,1 179,59 1,59 1,1 179,1"
-                  ></polyline>
-                  <polyline
-                    className="hl-line"
-                    points="179,1 179,59 1,59 1,1 179,1"
-                  ></polyline>
-                </svg>
-                <span>Buy</span>
-              </button>
+        <div className="main_btn">
+          <div className="btn__containerGlav">
+            <div className="container__btn">
+              <div className="center__btn">
+                <button className="btn">
+                  <svg
+                    class="border"
+                    viewBox="0 0 180 60"
+                    height="60px"
+                    width="180px"
+                  >
+                    <polyline
+                      className="bg-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                    <polyline
+                      className="hl-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                  </svg>
+                  <span>Buy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="btn__containerGlav">
+            <div className="container__btn">
+              <div className="center__btn">
+                <button className="btn">
+                  <svg
+                    class="border"
+                    viewBox="0 0 180 60"
+                    height="60px"
+                    width="180px"
+                  >
+                    <polyline
+                      className="bg-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                    <polyline
+                      className="hl-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                  </svg>
+                  <span>Edit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="btn__containerGlav">
+            <div className="container__btn">
+              <div className="center__btn">
+                <button className="btn">
+                  <svg
+                    class="border"
+                    viewBox="0 0 180 60"
+                    height="60px"
+                    width="180px"
+                  >
+                    <polyline
+                      className="bg-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                    <polyline
+                      className="hl-line"
+                      points="179,1 179,59 1,59 1,1 179,1"
+                    ></polyline>
+                  </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

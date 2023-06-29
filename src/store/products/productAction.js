@@ -6,6 +6,14 @@ export const getProducts = createAsyncThunk(
   "@products/getProducts",
   async () => {
     let { data } = await axios(API);
-    console.log(data);
+    return data;
+  }
+);
+export const addProduct = createAsyncThunk(
+  "products/addProduct",
+  async (obj, { dispatch }) => {
+    await axios.post(API, obj);
+    dispatch(getProducts());
+    return obj;
   }
 );

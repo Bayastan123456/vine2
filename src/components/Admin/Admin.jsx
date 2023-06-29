@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./Admin.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, getProducts } from "../../store/products/productAction";
+import { useNavigate } from "react-router-dom";
 const Admin = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -11,6 +14,9 @@ const Admin = () => {
   const [stain, setStain] = useState("");
   const [char, setChar] = useState("");
   const [franc, setFranc] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleProduct = () => {
     if (!name.trim() || !image.trim() || !sort.trim || !descr.trim) {
@@ -29,6 +35,8 @@ const Admin = () => {
       char,
       franc,
     };
+    dispatch(addProduct(obj));
+    navigate("/product");
   };
 
   return (
