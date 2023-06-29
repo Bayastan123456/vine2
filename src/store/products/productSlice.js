@@ -2,15 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   product: [],
+  oneProduct: {},
 };
 
 export const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    setProduct(state, action) {
-      state.product = action.payload;
-    },
+  reducers: {},
+  extraReducers: (buildings) => {
+    buildings.addCase(polychit.fulfilled, (state, action) => {
+      state.cards = action.payload;
+    });
   },
 });
 
