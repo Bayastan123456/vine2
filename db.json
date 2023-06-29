@@ -1,3 +1,17 @@
 {
-  "products": []
+  "products": [
+    {
+      "name": "aktilek",
+      "image": "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/10/Briolette-2.png",
+      "sort": "wine",
+      "descr": "top",
+      "vid": "qww",
+      "percent": "klj",
+      "ref": "jh",
+      "stain": "kj",
+      "char": "kjn",
+      "franc": "kjn",
+      "id": 1
+    }
+  ]
 }

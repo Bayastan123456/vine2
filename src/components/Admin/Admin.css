@@ -3,7 +3,7 @@
   height: 100vh;
   background-image: url("https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/09/bg-menu-1280x720.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   position: fixed;
   z-index: -1;
 }
@@ -45,6 +45,7 @@
   /* text-align: center; */
   border: 2px solid white;
   border-radius: 5px;
+  color: white;
   /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
 }
 
@@ -118,7 +119,7 @@
 }
 
 .btn__admin {
-  color: black;
+  color: white;
   text-decoration: none;
   cursor: pointer;
   outline: none;
@@ -126,5 +127,5 @@
   background: transparent;
 }
 .btn__admin:hover {
-  color: white;
+  color: aqua;
 }
