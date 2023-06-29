@@ -6,6 +6,7 @@ import NotFound from "../pages/NotFoundPage/NotFound";
 import Login from "../components/auth/Login/Login";
 import Register from "../components/auth/Register/Register";
 import Activation from "../components/auth/Activation/Activation";
+import ProductDetails from "../components/Product/Details/ProductDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -38,6 +39,11 @@ const MainRoutes = () => {
       link: "/activation",
       element: <Activation />,
       id: 6,
+    },
+    {
+      link: "/details",
+      element: <ProductDetails />,
+      id: 7,
     },
   ];
 

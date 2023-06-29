@@ -1,0 +1,94 @@
+.productCard_container {
+  margin: 0;
+  padding: 2%;
+  width: 100vw;
+}
+
+.productCard_container > h2 {
+  margin: 4rem 0;
+  color: white;
+  text-align: center;
+}
+
+.productCard_wrapper {
+  display: flex;
+}
+
+.sidebar {
+  margin-right: 5px;
+}
+
+.product_cards {
+  margin: 0 auto 0 0;
+  display: flex;
+}
+
+.card_item {
+  border: 0.5px solid rgba(0, 0, 0, 0);
+  min-width: 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1.5s, border 1s ease-in;
+  font-size: 1.5em;
+}
+
+.card_item:hover {
+  border: 0.5px solid grey;
+  transition: all 1.5s, border 1s ease-in;
+}
+
+.card_item > .absolute:hover {
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 100%);
+}
+
+.card_item > img {
+  width: 50%;
+}
+
+.card_item_text {
+  color: rgb(129, 241, 204);
+}
+
+.card_item > button {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  color: aliceblue;
+  padding: 1em 4rem;
+  border-radius: 30px;
+  border: 1px solid aliceblue;
+  transition: border 1s ease-in, color 1s ease-in;
+}
+
+.card_item > button:hover {
+  color: rgb(129, 241, 204);
+  border: 1px solid rgb(129, 241, 204);
+  transition: border 1s ease-in, color 1s ease-in;
+}
+
+/* ! slide effect for text  start*/
+.slide_wrapper {
+  position: relative;
+}
+
+.relative {
+  color: rgb(255, 255, 255);
+  transition: all 1s ease-in-out;
+}
+
+.absolute {
+  color: #323232e4;
+  position: absolute;
+  top: 0;
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 0);
+}
+
+.absolute:hover {
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 100%);
+}
+
+/* ! slide effect for text  end*/

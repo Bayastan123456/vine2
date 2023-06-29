@@ -1,0 +1,41 @@
+nav {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
+  align-items: start;
+  z-index: 100;
+  position: sticky;
+}
+
+.nav_logo__villa {
+  width: 110px;
+  height: 65px;
+}
+.nav_left__side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_left__glass {
+  width: 80px;
+  height: 40px;
+}
+.nav_left__bottle {
+  width: 100px;
+  height: 50px;
+}
+.nav_right__btn {
+  border-radius: 50%;
+  background-color: rgb(18 18 19);
+  color: white;
+  font-size: 10px;
+  padding: 10px;
+  margin-right: 20px;
+  border: 1px solid white;
+}
+.nav_right__btn:hover {
+  transition: border 0.6s ease-in-out;
+  border: 1px solid aqua;
+}
