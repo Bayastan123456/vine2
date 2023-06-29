@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "../pages/HomePage/Home";
 import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
@@ -8,8 +8,11 @@ import Register from "../components/auth/Register/Register";
 import Activation from "../components/auth/Activation/Activation";
 import ProductDetails from "../components/Product/Details/ProductDetails";
 import AdminPage from "../pages/AdminPage";
+import { useSelector } from "react-redux";
+import { ADMIN } from "../const";
 
 const MainRoutes = () => {
+  const { user } = useSelector((state) => state.auth);
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -46,10 +49,13 @@ const MainRoutes = () => {
       element: <ProductDetails />,
       id: 7,
     },
+  ];
+
+  const PRIVATE__ROUTES = [
     {
       link: "/admin",
       element: <AdminPage />,
-      id: 8,
+      id: 1,
     },
   ];
 
@@ -58,6 +64,16 @@ const MainRoutes = () => {
       {PUBLIC_ROUTES.map((item) => (
         <Route path={item.link} element={item.element} key={item.id} />
       ))}
+      {user &&
+        PRIVATE__ROUTES.map((item) => (
+          <Route
+            path={item.link}
+            element={
+              user === ADMIN ? item.element : <Navigate replace to="*" />
+            }
+            key={item.id}
+          />
+        ))}
     </Routes>
   );
 };
