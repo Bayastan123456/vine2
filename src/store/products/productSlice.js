@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addProduct, getProducts } from "./productAction";
+import { addProduct, getOneProduct, getProducts } from "./productAction";
 
 const initialState = {
   products: [],
@@ -17,6 +17,9 @@ export const productSlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);
+      })
+      .addCase(getOneProduct.fulfilled, (state, action) => {
+        state.oneProduct = action.payload;
       });
   },
 });

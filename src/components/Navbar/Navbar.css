@@ -55,3 +55,7 @@ nav {
   width: 20px;
   height: 20px;
 }
+
+.nav_right__bottle {
+  cursor: pointer;
+}
