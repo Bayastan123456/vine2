@@ -8,6 +8,10 @@ body {
   box-sizing: border-box;
 }
 
+h5{
+  user-select: none;
+}
+
 #font_nanum{
   font-family: 'Nanum Myeongjo', serif;
 }
@@ -15,3 +19,31 @@ body {
 #font_pathway{
   font-family: 'Pathway Extreme', sans-serif;
 }
+
+/* ! slide effect for text  start*/
+.slide_wrapper {
+  position: relative;
+}
+
+.relative {
+  color: rgb(255, 255, 255);
+  transition: all 1s ease-in-out;
+  user-select: none;
+}
+
+.absolute {
+  color: #323232e4;
+  position: absolute;
+  top: 0;
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 0);
+  user-select: none;
+}
+
+.absolute:hover {
+  transition: all 1s ease-in-out;
+  clip-path: inset(0 0 0 100%);
+  cursor: pointer;
+}
+
+/* ! slide effect for text  end*/

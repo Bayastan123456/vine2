@@ -4,6 +4,7 @@ import Home from "../pages/HomePage/Home";
 import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
 import ProductDetails from "../components/Product/Details/ProductDetails";
+import Menu from "../components/Menu/Menu";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -25,6 +26,11 @@ const MainRoutes = () => {
     {
       link: "/details",
       element: <ProductDetails />,
+      id: 3,
+    },
+    {
+      link: "/menu",
+      element: <Menu />,
       id: 3,
     },
   ];
