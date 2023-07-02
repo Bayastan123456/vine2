@@ -30,5 +30,13 @@ export const editedOneProduct = createAsyncThunk(
   async (editedObj, { dispatch }) => {
     await axios.patch(`${API}/${editedObj.id}`, editedOneProduct);
     dispatch(getProducts());
+    console.log(editedObj);
+  }
+);
+export const deleteProduct = createAsyncThunk(
+  "products/deleteProduct",
+  async (id, { dispatch }) => {
+    await axios.delete(`${API}/${id}`);
+    dispatch(getOneProduct());
   }
 );

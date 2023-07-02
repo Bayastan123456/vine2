@@ -8,18 +8,25 @@ const Admin = () => {
   const [image, setImage] = useState("");
   const [sort, setSort] = useState("");
   const [descr, setDescr] = useState("");
-  const [vid, setVid] = useState("");
-  const [percent, setPercent] = useState("");
-  const [ref, setRef] = useState("");
-  const [stain, setStain] = useState("");
-  const [char, setChar] = useState("");
-  const [franc, setFranc] = useState("");
+  const [price, setPrice] = useState("");
+  // const [vid, setVid] = useState("");
+  // const [percent, setPercent] = useState("");
+  // const [ref, setRef] = useState("");
+  // const [stain, setStain] = useState("");
+  // const [char, setChar] = useState("");
+  // const [franc, setFranc] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleProduct = () => {
-    if (!name.trim() || !image.trim() || !sort.trim || !descr.trim) {
+    if (
+      !name.trim() ||
+      !image.trim() ||
+      !sort.trim() ||
+      !descr.trim() ||
+      !price.trim()
+    ) {
       alert("fill in the field");
       return;
     }
@@ -28,12 +35,7 @@ const Admin = () => {
       image,
       sort,
       descr,
-      vid,
-      percent,
-      ref,
-      stain,
-      char,
-      franc,
+      price,
     };
     dispatch(addProduct(obj));
     navigate("/product");
@@ -77,16 +79,24 @@ const Admin = () => {
               onChange={(e) => setDescr(e.target.value)}
               value={descr}
             />
-            <input
+            {/* <input
               placeholder="vid"
               className="input__admin"
               name="text"
               type="text"
               onChange={(e) => setVid(e.target.value)}
               value={vid}
+            /> */}
+            <input
+              placeholder="price"
+              className="input__admin"
+              name="text"
+              type="text"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
             />
           </div>
-          <div className="left__boxAdmin">
+          {/* <div className="left__boxAdmin">
             <input
               placeholder="percent"
               className="input__admin"
@@ -116,7 +126,7 @@ const Admin = () => {
               className="input__admin"
               name="text"
               type="text"
-              onChange={(e) => setChar(e.target.value)}
+              // onChange={(e) => setChar(e.target.value)}
               value={char}
             />
             <input
@@ -127,7 +137,7 @@ const Admin = () => {
               onChange={(e) => setFranc(e.target.value)}
               value={franc}
             />
-          </div>
+          </div> */}
         </div>
         <button className="btn__admin" onClick={handleProduct}>
           <span class="box__admin">Create</span>
