@@ -10,7 +10,10 @@ import image9 from "./image/9.png";
 import { useDispatch, useSelector } from "react-redux";
 import { ADMIN } from "../../../const";
 import { useNavigate, useParams } from "react-router-dom";
-import { getOneProduct } from "../../../store/products/productAction";
+import {
+  deleteProduct,
+  getOneProduct,
+} from "../../../store/products/productAction";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,7 +29,6 @@ const ProductDetails = () => {
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, [id]);
-  console.log(oneProduct);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -154,7 +156,10 @@ const ProductDetails = () => {
               </div>
             ) : (
               <>
-                <div className="btn__containerGlav">
+                <div
+                  onClick={() => navigate(`/edit/${oneProduct.id}`)}
+                  className="btn__containerGlav"
+                >
                   <div className="container__btn">
                     <div className="center__btn">
                       <button className="btn">
@@ -173,14 +178,18 @@ const ProductDetails = () => {
                             points="179,1 179,59 1,59 1,1 179,1"
                           ></polyline>
                         </svg>
-                        <span onClick={() => navigate("/details/:id")}>
-                          Edit
-                        </span>
+                        <span>Edit</span>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="btn__containerGlav">
+                <div
+                  onClick={() => {
+                    dispatch(deleteProduct(id));
+                    navigate("/product");
+                  }}
+                  className="btn__containerGlav"
+                >
                   <div className="container__btn">
                     <div className="center__btn">
                       <button className="btn">
