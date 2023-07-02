@@ -8,11 +8,7 @@ body {
   box-sizing: border-box;
   font-family: "Nanum Myeongjo", serif;
 }
-#font_nanum {
-  font-family: "Nanum Myeongjo", serif;
-}
 
-<<<<<<< HEAD
 h5{
   user-select: none;
 }
@@ -52,8 +48,3 @@ h5{
 }
 
 /* ! slide effect for text  end*/
-=======
-#font_pathway {
-  font-family: "Pathway Extreme", sans-serif;
-}
->>>>>>> 3b34d6fe75bf7884960223b18d2d360e7059137d

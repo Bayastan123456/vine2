@@ -7,14 +7,11 @@ import Login from "../components/auth/Login/Login";
 import Register from "../components/auth/Register/Register";
 import Activation from "../components/auth/Activation/Activation";
 import ProductDetails from "../components/Product/Details/ProductDetails";
-<<<<<<< HEAD
-import Menu from "../components/Menu/Menu";
-=======
 import AdminPage from "../pages/AdminPage";
 import { useSelector } from "react-redux";
 import { ADMIN } from "../const";
 import EditProduct from "../components/Product/EditProduct/EditProduct";
->>>>>>> 3b34d6fe75bf7884960223b18d2d360e7059137d
+import Menu from "../components/Menu/Menu";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -59,6 +56,11 @@ const MainRoutes = () => {
       element: <EditProduct />,
       id: 8,
     },
+    {
+      link: "/menu",
+      element: <Menu />,
+      id: 9,
+    },
   ];
 
   const PRIVATE__ROUTES = [
@@ -66,11 +68,6 @@ const MainRoutes = () => {
       link: "/admin",
       element: <AdminPage />,
       id: 1,
-    },
-    {
-      link: "/menu",
-      element: <Menu />,
-      id: 3,
     },
   ];
 
