@@ -1,0 +1,143 @@
+.menu_container{
+    margin:0;
+    padding: 0;
+    position: relative;
+}
+
+.menu_bg>img{
+    width: 100%;
+    height: 100vh;
+}
+
+.menu_bgShadow{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.771);
+}
+
+.menu_menu{
+    padding: 10%;
+    position: absolute;
+    top:0;
+    width: 100%;
+    display: flex;
+}
+
+.menu_menu_left{
+    margin: 0 5%;
+}
+
+.menu_menu_left>h5{
+    color: #81dece;
+    font-size: 1em;
+    margin: 0.8em auto;
+    font-weight: initial;
+}
+
+.menu_menuOptions{
+    margin-top: 2.5rem;
+    font-size: 2.6rem;
+    font-style: normal;
+    transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.menu_menuOptions>.slide_wrapper{
+    margin: 0.3% auto;
+}
+
+.menu_menuSubOptions{
+    margin-top: 2%;
+    font-size: 1.2rem;
+}
+
+.menu_menuSubOptions>.slide_wrapper{
+    margin: 0.6% auto;
+}
+
+.menu_menu_central{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu_menu_central>button{
+    position: absolute;
+    top: 12%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    color: aliceblue;
+    border-radius: 30px;
+    border: 1px solid aliceblue;
+    transition: border 1s ease-in, color 1s ease-in;
+}
+
+.menu_menu_central>button:hover{
+    color: rgb(129, 241, 204);
+    border: 1px solid rgb(129, 241, 204);
+    transition: border 1s ease-in, color 1s ease-in;
+    cursor: pointer;
+}
+
+
+.central_border_up{
+    margin: 0.8em 0;
+    width: 1vw;
+    height: 25vh;
+    top:150%;
+    background: rgba(255, 255, 255, 0.650);
+    clip-path: polygon(47% 0.2%, 20% 0.2%, 20% 0%, 75% 0%, 75% 0.2%, 49% 0.2%, 49% 100%, 47% 100%);
+}
+
+.armcrest{
+    width: 10vw;
+    top: 32vh;
+    background: none;
+}
+
+.central_border_down{
+    margin: 0.8em 0;
+    width: 1vw;
+    height: 25vh;
+    top: 45vh;
+    background: rgba(255, 255, 255, 0.650);
+    clip-path: polygon(47% 0.3%, 20% 0.3%, 20% 0%, 75% 0%, 75% 0.3%, 49% 0.3%, 49% 100%, 47% 100%);
+    transform: rotate(0.5turn);
+}
+
+.menu_menu_right{
+    margin: 0 5%;
+}
+
+.menu_menu_right>div>h5{
+    color: #81dece;
+    font-size: 1em;
+    margin: 0.8em auto;
+    font-weight: initial;
+}
+
+.menu_menu_rightOptions{
+    margin-top: 2.5rem;
+    font-size: 2.6rem;
+    font-style: normal;
+    transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.menu_menu_rightOptionsList{
+    display: flex;
+}
+
+.right_menuImg{
+    position: absolute;
+    top:-30%;
+    left: 25%;
+    width: 100%;
+}
+
+.right_menuImg>img{
+    width: 100%;
+    display: none;
+}
+
