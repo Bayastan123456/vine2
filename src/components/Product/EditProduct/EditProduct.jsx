@@ -23,7 +23,7 @@ const EditProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleProduct = () => {
+  const handleEditProduct = () => {
     if (!name.trim() || !image.trim() || !sort.trim || !descr.trim) {
       alert("fill in the field");
       return;
@@ -40,7 +40,7 @@ const EditProduct = () => {
       char,
       franc,
     };
-    dispatch(editedOneProduct(obj));
+    dispatch(getOneProduct(obj));
     navigate("/product");
   };
   const { id } = useParams();
@@ -139,7 +139,7 @@ const EditProduct = () => {
             />
           </div>
         </div>
-        <button className="btn__admin" onClick={handleProduct}>
+        <button className="btn__admin" onClick={handleEditProduct}>
           <span class="box__admin">Create</span>
         </button>
       </div>

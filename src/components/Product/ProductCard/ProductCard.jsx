@@ -12,11 +12,10 @@ const ProductCard = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  console.log(products);
 
   return (
     <>
-      {products.map((item) => (
+      {products.map((item, index) => (
         <div className="product_cards">
           <div className="card_item">
             <img src={item.image} alt="nothing but a bottle of wine" />
@@ -31,7 +30,9 @@ const ProductCard = () => {
             <div className="card_item_text">
               <h5 id="font_pathway">{item.sort}</h5>
             </div>
-            <button onClick={() => navigate("/details")}>DISCOVER</button>
+            <button onClick={() => navigate(`/details/${item.id}`)}>
+              DISCOVER
+            </button>
           </div>
         </div>
       ))}

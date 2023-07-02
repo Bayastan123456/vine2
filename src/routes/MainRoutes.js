@@ -46,15 +46,15 @@ const MainRoutes = () => {
       id: 6,
     },
     {
-      link: "/details",
+      link: "/details/:id",
       element: <ProductDetails />,
       id: 7,
     },
-    {
-      link: "/details/:id",
-      element: <EditProduct />,
-      id: 7,
-    },
+    // {
+    //   link: "/details/:id",
+    //   element: <EditProduct />,
+    //   id: 7,
+    // },
   ];
 
   const PRIVATE__ROUTES = [

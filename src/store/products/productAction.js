@@ -19,7 +19,7 @@ export const addProduct = createAsyncThunk(
 );
 
 export const getOneProduct = createAsyncThunk(
-  "products/getProducts",
+  "products/getOneProducts",
   async (id) => {
     let { data } = await axios(`${API}/${id}`);
     return data;
@@ -28,8 +28,7 @@ export const getOneProduct = createAsyncThunk(
 export const editedOneProduct = createAsyncThunk(
   "products/editedOneProduct",
   async (editedObj, { dispatch }) => {
-    await axios.patch(`${API}/${editedObj.id}`, editedObj);
+    await axios.patch(`${API}/${editedObj.id}`, editedOneProduct);
     dispatch(getProducts());
-    return editedObj;
   }
 );
