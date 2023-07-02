@@ -50,6 +50,14 @@
       " !options.dispatchConditionRejection ": "",
       " rejected.match(finalAction) ": "",
       " finalAction.meta.condition;\n                  if (!skipDispatch) {\n                    dispatch(finalAction);\n                  }\n                  return [2 /*return*/, finalAction];\n              }\n            });\n          });\n        }();\n        return Object.assign(promise2, {\n          abort: abort,\n          requestId: requestId,\n          arg: arg,\n          unwrap: function () {\n            return promise2.then(unwrapResult);\n          }\n        });\n      };\n    }": ""
+    },
+    {
+      "name": "Bawawowa",
+      "image": "https://png.pngtree.com/png-vector/20190328/ourmid/pngtree-vector-water-bottle-icon-png-image_872322.jpg",
+      "sort": "Butylka",
+      "descr": "Bottle of water",
+      "price": "100000000000",
+      "id": 4
     }
   ]
 }
