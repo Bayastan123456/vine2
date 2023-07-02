@@ -12,7 +12,6 @@ const ProductCard = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  console.log(products);
 
   return (
     <>
@@ -31,7 +30,9 @@ const ProductCard = () => {
             <div className="card_item_text">
               <h5 id="font_pathway">{item.sort}</h5>
             </div>
-            <button onClick={() => navigate("/details")}>DISCOVER</button>
+            <button onClick={() => navigate(`/details/${item.id}`)}>
+              DISCOVER
+            </button>
           </div>
         </div>
       ))}

@@ -17,3 +17,18 @@ export const addProduct = createAsyncThunk(
     return obj;
   }
 );
+
+export const getOneProduct = createAsyncThunk(
+  "products/getOneProducts",
+  async (id) => {
+    let { data } = await axios(`${API}/${id}`);
+    return data;
+  }
+);
+export const editedOneProduct = createAsyncThunk(
+  "products/editedOneProduct",
+  async (editedObj, { dispatch }) => {
+    await axios.patch(`${API}/${editedObj.id}`, editedOneProduct);
+    dispatch(getProducts());
+  }
+);

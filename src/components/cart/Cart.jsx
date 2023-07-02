@@ -36,7 +36,10 @@ const Cart = () => {
             <div className="total">SUBTOTALE € 31.50</div>
           </div>
         </div>
-        <div className="total__box"></div>
+        <div className="total__box">
+          <h4>Totale 856,50 €</h4>
+          <button>go to checkout</button>
+        </div>
       </div>
 
       <div id="main">
