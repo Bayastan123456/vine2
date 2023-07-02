@@ -14,7 +14,7 @@ const ProductCard = () => {
   }, []);
 
   return (
-    <>
+    <div className="product_cards_container">
       {products.map((item, index) => (
         <div className="product_cards">
           <div className="card_item">
@@ -36,7 +36,7 @@ const ProductCard = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
