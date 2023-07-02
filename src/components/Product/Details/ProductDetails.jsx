@@ -7,13 +7,16 @@ import image6 from "./image/6.png";
 import image7 from "./image/7.png";
 import image8 from "./image/8.png";
 import image9 from "./image/9.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ADMIN } from "../../../const";
+import { getCart } from "../../../store/cart/cartSlice";
+import { calcSubPrice, calcTotalPrice } from "../../function";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   useEffect(() => {
     const handleScroll = () => {
       const top = ref.current.getBoundingClientRect().top;
@@ -32,6 +35,42 @@ const ProductDetails = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ products: [], totalPrice: 0 })
+      );
+      cart = { products: [], totalPrice: 0 };
+    }
+    dispatch(getCart(cart));
+  }, []);
+
+  const changeProductCount = (count, id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    cart.products = cart.products.map((product) => {
+      if (product.item.id === id) {
+        product.count = count;
+        product.subPrice = calcSubPrice(product);
+      }
+      return product;
+    });
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+  };
+
+  const deleteCartProduct = (id) => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.products = cart.products.filter((elem) => elem.item.id !== id);
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+  };
+
   return (
     <>
       <div className="glav__datail">
@@ -118,9 +157,18 @@ const ProductDetails = () => {
             <div className="btn__containerGlav">
               <div className="container__btn">
                 <div className="center__btn">
-                  <button className="btn">
+                  <button
+                    className="btn"
+                    // onClick={() => {
+                    //   if (elem.count === 1) {
+                    //     deleteCartProduct(elem.item.id);
+                    //   } else {
+                    //     changeProductCount(elem.count - 1, elem.item.id);
+                    //   }
+                    // }}
+                  >
                     <svg
-                      class="border"
+                      className="border"
                       viewBox="0 0 180 60"
                       height="60px"
                       width="180px"

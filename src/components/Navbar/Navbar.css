@@ -59,3 +59,7 @@ nav {
 .nav_right__bottle {
   cursor: pointer;
 }
+
+#btn__nav {
+  border: none;
+}
