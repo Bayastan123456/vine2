@@ -12,7 +12,6 @@ import { authListener, handleLogout } from "../../store/auth/authActions";
 import { clearInputs } from "../../store/auth/authSlice";
 import { ADMIN } from "../../const";
 const Navbar = () => {
-  //   useEffect(() => {}, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
