@@ -1,13 +1,8 @@
 import React from "react";
 import "../../components/Product/ProductCard/ProductCard";
-import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../../components/Product/ProductCard/ProductCard";
 
 const Products = () => {
-  const { products } = useSelector((state) => state.products);
-  console.log(products);
-  const dispatch = useDispatch();
-
   return (
     <>
       <div className="productCard_container">

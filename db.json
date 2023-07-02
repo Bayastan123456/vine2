@@ -12,6 +12,32 @@
       "char": "kjn",
       "franc": "kjn",
       "id": 1
+    },
+    {
+      "name": "Bayas",
+      "image": "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/10/Briolette-2.png",
+      "sort": "wine",
+      "descr": "top",
+      "vid": "qww",
+      "percent": "klj",
+      "ref": "jh",
+      "stain": "kj",
+      "char": "kjn",
+      "franc": "kjn",
+      "id": 2
+    },
+    {
+      "name": "aktilek",
+      "image": "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/10/Briolette-2.png",
+      "sort": "asdfl;askdf",
+      "descr": ";lsakf;lsdf",
+      "vid": "",
+      "percent": "",
+      "ref": "",
+      "stain": "",
+      "char": "",
+      "franc": "",
+      "id": 3
     }
   ]
 }
