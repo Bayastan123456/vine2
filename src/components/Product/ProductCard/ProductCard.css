@@ -14,7 +14,8 @@
 
 .productCard_wrapper {
   position: relative;
-  display: flex;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .sidebar {
@@ -24,9 +25,16 @@
   top:50%;
 }
 
-.product_cards {
-  margin: 0 0 0 13%;
+.product_cards_container{
+  position: absolute;
+  top: 0;
+  left: 12vw;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.product_cards {
+  margin: 0.5em 1em;
 }
 
 .card_item {

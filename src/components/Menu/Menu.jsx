@@ -82,6 +82,7 @@ const Menu = () => {
         {
           category: "ALL PRODUCTS",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/tutti-1.jpg",
+          link: "/product"
         },
         {
           category: "FRANCIACORTA",
@@ -108,7 +109,7 @@ const Menu = () => {
           <div className="menu_menu_rightOptions">
             <ul>
               {section.options.map((elem, index)=>(
-                <li key={index} style={{listStyle:"none"}} className='menu_menu_rightOptionsList' onMouseOver={()=>setImgUrl(elem.img)}>
+                <li key={index} style={{listStyle:"none"}} className='menu_menu_rightOptionsList' onMouseOver={()=>setImgUrl(elem.img)} onClick={()=>navigate(elem.link)}>
                   <div className="slide_wrapper">
                     <div className="relative">
                       <span>{elem.category}</span>
