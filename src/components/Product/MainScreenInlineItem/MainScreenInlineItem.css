@@ -11,21 +11,21 @@
   margin-bottom: 0px;
 }
 
-ul {
+.itemListProduct {
   display: inline-flex;
   margin: 10px -25px;
   padding: 0;
 }
 
-ul:nth-child(6n + 5) {
+.itemListProduct:nth-child(6n + 5) {
   margin-left: 200px;
 }
 
-ul:nth-child(4) {
+.itemListProduct:nth-child(4) {
   display: none;
 }
 
-li {
+.itemProduct {
   list-style: none;
   display: flex;
   justify-content: center;

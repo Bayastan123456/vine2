@@ -1,0 +1,19 @@
+.formTitel {
+    margin-left: 47%;
+    transform: translateX(-15%);
+}
+
+.formInput {
+    margin-left: 31.7%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.formButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    background: #fff;
+    border: none;
+}

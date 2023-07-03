@@ -1,0 +1,24 @@
+.productCommentsTitel {
+    margin-left: 40.5%;
+}
+
+.productCommentP {
+    margin-left: 45%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.commentList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.commentItem {
+    margin: 10px 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    font-size: 40px;
+}
