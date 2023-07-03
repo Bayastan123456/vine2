@@ -123,11 +123,12 @@ const MainScreenInlineItem = () => {
                   onMouseMove={handleUlMouseMove}
                   onMouseUp={handleUlMouseUp}
                   onMouseLeave={handleUlMouseLeave}
+                  className="itemListProduct"
                 >
                   {subArr.map((e, i) => (
                     <li
                       key={e}
-                      className={activeIndex === startIndex + i ? "active" : ""}
+                      className={`itemProduct ${activeIndex === startIndex + i ? "active" : ""}`}
                       onClick={() => handleLiClick(startIndex + i)}
                     >
                       <div className="imgBlock">
