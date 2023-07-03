@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../store/products/productAction";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = () => {
-  const { products } = useSelector((state) => state.products);
-  console.log(products);
+const ProductCard = ({ searchProduct }) => {
+  // const { products } = useSelector((state) => state.products);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -15,7 +15,7 @@ const ProductCard = () => {
 
   return (
     <div className="product_cards_container">
-      {products.map((item) => (
+      {searchProduct.map((item) => (
         <div className="product_cards" key={item.id}>
           <div className="card_item">
             <img src={item?.image} alt="nothing but a bottle of wine" />
