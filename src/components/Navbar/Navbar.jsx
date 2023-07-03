@@ -46,7 +46,9 @@ const Navbar = () => {
         <img className="nav_logo__villa" src={img1} alt="" />
       </div>
       <div className="nav_right__side">
-        <button className="nav_right__btn">SE</button>
+        <button className="nav_right__btn" onClick={() => navigate("/search")}>
+          SE
+        </button>
         {user ? (
           <button
             className="nav_right__btn"

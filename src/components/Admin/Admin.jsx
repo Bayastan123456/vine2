@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Admin.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addProduct, getProducts } from "../../store/products/productAction";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../store/products/productAction";
 import { useNavigate } from "react-router-dom";
 const Admin = () => {
   const [name, setName] = useState("");
@@ -140,7 +140,7 @@ const Admin = () => {
           </div> */}
         </div>
         <button className="btn__admin" onClick={handleProduct}>
-          <span class="box__admin">Create</span>
+          <span className="box__admin">Create</span>
         </button>
       </div>
     </div>
