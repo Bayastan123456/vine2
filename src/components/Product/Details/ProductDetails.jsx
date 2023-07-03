@@ -10,7 +10,10 @@ import image9 from "./image/9.png";
 import { useDispatch, useSelector } from "react-redux";
 import { ADMIN } from "../../../const";
 import { useNavigate, useParams } from "react-router-dom";
-import { getOneProduct } from "../../../store/products/productAction";
+import {
+  getOneProduct,
+  deleteProduct,
+} from "../../../store/products/productAction";
 import { calcTotalPrice } from "../../function";
 import { getCart } from "../../../store/cart/cartSlice";
 
@@ -24,12 +27,10 @@ const ProductDetails = () => {
   const navigate = useNavigate();
 
   const { oneProduct } = useSelector((state) => state.products);
-  const [checkProduct, setCheckProduct] = useState(false);
 
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, [id]);
-  console.log(oneProduct);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,8 +50,8 @@ const ProductDetails = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const addProductToCart = (product) => {
+  console.log(oneProduct);
+  useEffect(() => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
       cart = {
@@ -58,31 +59,35 @@ const ProductDetails = () => {
         totalPrice: 0,
       };
     }
-    let newProduct = {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+  }, []);
+
+  function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    let obj = {
       item: product,
-      count: 1,
       subPrice: +product.price,
     };
 
-    let productToFind = cart.products.filter(
-      (elem) => elem.item.id === product.id
-    );
+    let productInCart = cart.products.filter((elem) => elem.id === product.id);
 
-    if (productToFind.length == 0) {
-      cart.products.push(newProduct);
+    if (productInCart.length == 0) {
+      cart.products.push(obj);
     } else {
-      cart.products = cart.products.filter(
-        (elem) => elem.item.id !== product.id
-      );
+      cart.products = cart.products.filter((elem) => elem.id !== product.id);
     }
-
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    setCheckProduct((prev) => !prev);
-    dispatch(getCart(cart.products));
-  };
-
+    dispatch(getCart(cart));
+    console.log(cart.products);
+  }
   return (
     <>
       <>
@@ -167,7 +172,10 @@ const ProductDetails = () => {
               <div className="btn__containerGlav">
                 <div className="container__btn">
                   <div className="center__btn">
-                    <button className="btn" onClick={addProductToCart}>
+                    <button
+                      className="btn"
+                      onClick={() => addToCart(oneProduct)}
+                    >
                       <svg
                         className="border"
                         viewBox="0 0 180 60"
@@ -190,7 +198,10 @@ const ProductDetails = () => {
               </div>
             ) : (
               <>
-                <div className="btn__containerGlav">
+                <div
+                  onClick={() => navigate(`/edit/${oneProduct.id}`)}
+                  className="btn__containerGlav"
+                >
                   <div className="container__btn">
                     <div className="center__btn">
                       <button className="btn">
@@ -209,14 +220,18 @@ const ProductDetails = () => {
                             points="179,1 179,59 1,59 1,1 179,1"
                           ></polyline>
                         </svg>
-                        <span onClick={() => navigate("/details/:id")}>
-                          Edit
-                        </span>
+                        <span>Edit</span>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="btn__containerGlav">
+                <div
+                  onClick={() => {
+                    dispatch(deleteProduct(id));
+                    navigate("/product");
+                  }}
+                  className="btn__containerGlav"
+                >
                   <div className="container__btn">
                     <div className="center__btn">
                       <button className="btn">

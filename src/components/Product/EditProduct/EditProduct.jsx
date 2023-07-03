@@ -8,46 +8,62 @@ import {
   editedOneProduct,
   getOneProduct,
 } from "../../../store/products/productAction";
-const EditProduct = () => {
-  const [name, setName] = useState("");
-  const [image, setImage] = useState("");
-  const [sort, setSort] = useState("");
-  const [descr, setDescr] = useState("");
-  const [vid, setVid] = useState("");
-  const [percent, setPercent] = useState("");
-  const [ref, setRef] = useState("");
-  const [stain, setStain] = useState("");
-  const [char, setChar] = useState("");
-  const [franc, setFranc] = useState("");
 
+const EditProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  const { oneProduct } = useSelector((state) => state.products);
+
+  const [name, setName] = useState(oneProduct.name);
+  const [image, setImage] = useState(oneProduct.image);
+  const [sort, setSort] = useState(oneProduct.sort);
+  const [descr, setDescr] = useState(oneProduct.descr);
+  const [price, setPrice] = useState(oneProduct.price);
+  //   const [vid, setVid] = useState("");
+  //   const [percent, setPercent] = useState("");
+  //   const [ref, setRef] = useState("");
+  //   const [stain, setStain] = useState("");
+  //   const [char, setChar] = useState("");
+  //   const [franc, setFranc] = useState("");
 
   const handleEditProduct = () => {
-    if (!name.trim() || !image.trim() || !sort.trim || !descr.trim) {
+    if (!name || !image || !sort || !descr || !price) {
       alert("fill in the field");
       return;
     }
-    let obj = {
+    let Editedobj = {
       name,
       image,
       sort,
       descr,
-      vid,
-      percent,
-      ref,
-      stain,
-      char,
-      franc,
+      price,
+      id: oneProduct.id,
+      //   vid,
+      //   percent,
+      //   ref,
+      //   stain,
+      //   char,
+      //   franc,
     };
-    dispatch(getOneProduct(obj));
+    dispatch(editedOneProduct(Editedobj));
     navigate("/product");
   };
-  const { id } = useParams();
 
   useEffect(() => {
     dispatch(getOneProduct(id));
   }, [id]);
+
+  useEffect(() => {
+    setName(oneProduct.name);
+    setImage(oneProduct.image);
+    setPrice(oneProduct.price);
+    setDescr(oneProduct.descr);
+    setSort(oneProduct.sort);
+  }, [oneProduct]);
+
+  console.log(oneProduct);
 
   return (
     <div className="admin__box">
@@ -88,15 +104,23 @@ const EditProduct = () => {
               value={descr}
             />
             <input
+              placeholder="price"
+              className="input__admin"
+              name="text"
+              type="number"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
+            />
+            {/* <input
               placeholder="vid"
               className="input__admin"
               name="text"
               type="text"
               onChange={(e) => setVid(e.target.value)}
               value={vid}
-            />
+            /> */}
           </div>
-          <div className="left__boxAdmin">
+          {/* <div className="left__boxAdmin"> 
             <input
               placeholder="percent"
               className="input__admin"
@@ -137,10 +161,10 @@ const EditProduct = () => {
               onChange={(e) => setFranc(e.target.value)}
               value={franc}
             />
-          </div>
+          </div> */}
         </div>
         <button className="btn__admin" onClick={handleEditProduct}>
-          <span class="box__admin">Create</span>
+          <span class="box__admin">Save</span>
         </button>
       </div>
     </div>

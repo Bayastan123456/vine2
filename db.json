@@ -11,6 +11,7 @@
       "stain": "kj",
       "char": "kjn",
       "franc": "kjn",
+      "price": "50",
       "id": 1
     },
     {
@@ -24,6 +25,8 @@
       "stain": "kj",
       "char": "kjn",
       "franc": "kjn",
+      "price": "40",
+
       "id": 2
     },
     {
@@ -37,6 +40,8 @@
       "stain": "",
       "char": "",
       "franc": "",
+      "price": "50",
+
       "id": 3
     }
   ]

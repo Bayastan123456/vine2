@@ -50,11 +50,11 @@ const MainRoutes = () => {
       element: <ProductDetails />,
       id: 7,
     },
-    // {
-    //   link: "/details/:id",
-    //   element: <EditProduct />,
-    //   id: 7,
-    // },
+    {
+      link: "/edit/:id",
+      element: <EditProduct />,
+      id: 8,
+    },
   ];
 
   const PRIVATE__ROUTES = [
