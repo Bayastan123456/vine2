@@ -4,6 +4,8 @@ nav {
   display: flex;
   justify-content: space-between;
   padding-top: 1%;
+  transition: top 0.3s;
+  top: 0;
   align-items: start;
   z-index: 100;
   position: fixed;
@@ -58,4 +60,8 @@ nav {
 
 .nav_right__bottle {
   cursor: pointer;
+}
+
+#btn__nav {
+  border: none;
 }
