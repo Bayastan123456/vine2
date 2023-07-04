@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../../components/Product/ProductCard/ProductCard";
 import ProductCard from "../../components/Product/ProductCard/ProductCard";
 import { useSelector } from "react-redux";
+import { current } from "@reduxjs/toolkit";
+import { Box, Pagination } from "@mui/material";
 
 const Products = () => {
   const [search, setSearch] = useState("");
@@ -11,6 +13,20 @@ const Products = () => {
   const searchProduct = products.filter((product) => {
     return product.name.toLowerCase().includes(search.toLowerCase());
   });
+
+  const [page, setPage] = useState(1);
+  const itemPage = 3;
+  const count = Math.ceil(searchProduct.length / itemPage);
+
+  function currentData() {
+    const begin = (page - 1) * itemPage;
+    const end = begin + itemPage;
+    return searchProduct.slice(begin, end);
+  }
+
+  const handleChange = (_, page) => {
+    setPage(page);
+  };
 
   return (
     <>
@@ -60,9 +76,26 @@ const Products = () => {
               </div>
             </div>
           </div>
-          <ProductCard searchProduct={searchProduct} />
+          <ProductCard currentData={currentData} />
         </div>
       </div>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "50px 0",
+          backgroundColor: "white",
+          width: "100%",
+          marginTop: "470px",
+        }}
+      >
+        <Pagination
+          color="primary"
+          count={count}
+          page={page}
+          onChange={handleChange}
+        />
+      </Box>
     </>
   );
 };
