@@ -28,12 +28,23 @@ const EditProduct = () => {
   //   const [char, setChar] = useState("");
   //   const [franc, setFranc] = useState("");
 
-  const handleEditProduct = () => {
+  useEffect(() => {
+    dispatch(getOneProduct(id));
+  }, [id]);
+
+  useEffect(() => {
+    setName(oneProduct.name);
+    setImage(oneProduct.image);
+    setPrice(oneProduct.price);
+    setDescr(oneProduct.descr);
+    setSort(oneProduct.sort);
+  }, [oneProduct]);
+  function handleEditProduct() {
     if (!name || !image || !sort || !descr || !price) {
       alert("fill in the field");
       return;
     }
-    let Editedobj = {
+    let editedobj = {
       name,
       image,
       sort,
@@ -47,23 +58,10 @@ const EditProduct = () => {
       //   char,
       //   franc,
     };
-    dispatch(editedOneProduct(Editedobj));
+    dispatch(editedOneProduct(editedobj));
+    // navigate(`/details/${oneProduct.id}`);
     navigate("/product");
-  };
-
-  useEffect(() => {
-    dispatch(getOneProduct(id));
-  }, [id]);
-
-  useEffect(() => {
-    setName(oneProduct.name);
-    setImage(oneProduct.image);
-    setPrice(oneProduct.price);
-    setDescr(oneProduct.descr);
-    setSort(oneProduct.sort);
-  }, [oneProduct]);
-
-  console.log(oneProduct);
+  }
 
   return (
     <div className="admin__box">
@@ -164,7 +162,7 @@ const EditProduct = () => {
           </div> */}
         </div>
         <button className="btn__admin" onClick={handleEditProduct}>
-          <span class="box__admin">Save</span>
+          <span className="box__admin">Save</span>
         </button>
       </div>
     </div>

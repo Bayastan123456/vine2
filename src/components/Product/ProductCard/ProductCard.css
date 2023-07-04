@@ -22,10 +22,10 @@
   position: fixed;
   margin-right: 5px;
   font-size: 120%;
-  top:50%;
+  top: 50%;
 }
 
-.product_cards_container{
+.product_cards_container {
   position: absolute;
   top: 0;
   left: 12vw;
@@ -63,14 +63,14 @@
   width: 40%;
 }
 
-.card_item>.slide_wrapper {
+.card_item > .slide_wrapper {
   margin: 0.7em 0;
   transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 .card_item_text {
   color: rgb(129, 241, 204);
-  margin: 0.5em
+  margin: 0.5em;
 }
 
 .card_item > button {
@@ -89,4 +89,32 @@
   border: 1px solid rgb(129, 241, 204);
   transition: border 1s ease-in, color 1s ease-in;
 }
+.search_inp__block {
+  height: 80px;
+}
 
+.search_inp {
+  background-color: rgb(18 18 19);
+  border: none;
+  border-bottom: 2px white solid;
+  color: white;
+  font-size: 20px;
+  width: 65%;
+}
+.search_inp:focus {
+  border: none;
+  border-bottom: 2px white solid;
+  background: none;
+  outline: none;
+  transition: border 0.1 s ease-in;
+}
+.search_inp::placeholder {
+  color: aqua;
+  cursor: text;
+  top: 20px;
+  font-size: 14px;
+}
+
+h3 {
+  text-align: center;
+}

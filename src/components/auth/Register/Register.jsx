@@ -34,7 +34,7 @@ const Register = () => {
       <div className="mainModal_login">
         <div className="modal_block1">
           <h2 className="modal_h2">Register</h2>
-          <button onClick={() => navigate("/")}>x</button>
+          <button onClick={() => navigate("/")}>X</button>
         </div>
         <div className="modal_inp">
           <input
