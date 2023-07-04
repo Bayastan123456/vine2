@@ -56,24 +56,24 @@
   margin: 0.6% auto;
 }
 
-.menu_menu_central {
-  position: absolute;
-  left: 46.5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.menu_menu_central{
+    position: absolute;
+    left: 46.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.menu_menu_central > button {
-  position: absolute;
-  top: -10%;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0);
-  color: aliceblue;
-  border-radius: 30px;
-  border: 1px solid aliceblue;
-  transition: border 1s ease-in, color 1s ease-in;
+.menu_menu_central>button{
+    position: absolute;
+    top: -10%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+    color: aliceblue;
+    border-radius: 30px;
+    border: 1px solid aliceblue;
+    transition: border 1s ease-in, color 1s ease-in;
 }
 
 .menu_menu_central > button:hover {
@@ -126,10 +126,10 @@
   transform: rotate(0.5turn);
 }
 
-.menu_menu_right {
-  position: absolute;
-  right: 15vw;
-  margin: 0 5%;
+.menu_menu_right{
+    position: absolute;
+    left: 55%;
+    margin: 0 5%;
 }
 
 .menu_menu_right > div > h5 {
@@ -146,15 +146,15 @@
   transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
-.menu_menu_rightOptionsList {
-  display: flex;
+.menu_menu_rightOptionsList{
+
 }
 
-.right_menuImg {
-  position: absolute;
-  top: -30%;
-  left: 25%;
-  width: 100%;
+.right_menuImg{
+    position: absolute;
+    top:-30%;
+    left: 30%;
+    width: 100%;
 }
 
 .right_menuImg > img {
