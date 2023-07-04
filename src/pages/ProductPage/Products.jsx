@@ -80,13 +80,14 @@ const Products = () => {
         </div>
       </div>
       <Box
-      // sx={{
-      //   display: "flex",
-      //   justifyContent: "center",
-      //   margin: "50px 0",
-      //   backgroundColor: "white",
-      //   width: "100%",
-      // }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "50px 0",
+          backgroundColor: "white",
+          width: "100%",
+          marginTop: "470px",
+        }}
       >
         <Pagination
           color="primary"

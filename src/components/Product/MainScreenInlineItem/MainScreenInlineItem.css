@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: content-box;
 }
 
@@ -67,7 +67,6 @@ li {
   opacity: 100%;
 }
 
-.active span{
+.active span {
   color: aqua;
-}
-
+} */

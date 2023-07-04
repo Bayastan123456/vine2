@@ -30,7 +30,12 @@ const Navbar = () => {
           alt=""
           onClick={() => navigate("/menu")}
         />
-        <img className="nav_left__bottle" src={img3} alt="" />
+        <img
+          className="nav_left__bottle"
+          src={img3}
+          alt=""
+          onClick={() => navigate("/shop")}
+        />
         {user === ADMIN ? (
           <img
             className="nav_right__bottle"
