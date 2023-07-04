@@ -19,6 +19,7 @@ import { getCart } from "../../../store/cart/cartSlice";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [checkProduct, setCheckProduct] = useState(false);
   const ref = useRef(null);
   const { user } = useSelector((state) => state.auth);
 
@@ -73,21 +74,41 @@ const ProductDetails = () => {
     }
     let obj = {
       item: product,
+      count: 1,
       subPrice: +product.price,
     };
-
-    let productInCart = cart.products.filter((elem) => elem.id === product.id);
+    console.log(obj);
+    let productInCart = cart.products.filter(
+      (elem) => elem.item.id === product.id
+    );
 
     if (productInCart.length == 0) {
       cart.products.push(obj);
     } else {
-      cart.products = cart.products.filter((elem) => elem.id !== product.id);
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id
+      );
     }
     cart.totalPrice = calcTotalPrice(cart.products);
+
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch(getCart(cart));
-    console.log(cart.products);
   }
+
+  const checkProductInCart = () => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ products: [], totalPrice: 0 })
+      );
+      cart = { products: [], totalPrice: 0 };
+    }
+    const check = cart.products
+      ? cart.products?.find((elem) => elem.item.id === oneProduct.id)
+      : false;
+    return check;
+  };
   return (
     <>
       <>
@@ -173,33 +194,63 @@ const ProductDetails = () => {
           </div>
           <div className="main_btn">
             {user !== ADMIN ? (
-              <div className="btn__containerGlav">
-                <div className="container__btn">
-                  <div className="center__btn">
-                    <button
-                      className="btn"
-                      onClick={() => addToCart(oneProduct)}
-                    >
-                      <svg
-                        className="border"
-                        viewBox="0 0 180 60"
-                        height="60px"
-                        width="180px"
+              checkProductInCart() ? (
+                <div className="btn__containerGlav">
+                  <div className="container__btn">
+                    <div className="center__btn">
+                      <button
+                        className="btn"
+                        onClick={() => addToCart(oneProduct)}
                       >
-                        <polyline
-                          className="bg-line"
-                          points="179,1 179,59 1,59 1,1 179,1"
-                        ></polyline>
-                        <polyline
-                          className="hl-line"
-                          points="179,1 179,59 1,59 1,1 179,1"
-                        ></polyline>
-                      </svg>
-                      <span>Buy</span>
-                    </button>
+                        <svg
+                          className="border"
+                          viewBox="0 0 180 60"
+                          height="60px"
+                          width="180px"
+                        >
+                          <polyline
+                            className="bg-line"
+                            points="179,1 179,59 1,59 1,1 179,1"
+                          ></polyline>
+                          <polyline
+                            className="hl-line"
+                            points="179,1 179,59 1,59 1,1 179,1"
+                          ></polyline>
+                        </svg>
+                        <span>Buy</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="btn__containerGlav">
+                  <div className="container__btn">
+                    <div className="center__btn">
+                      <button
+                        className="btn"
+                        onClick={() => addToCart(oneProduct)}
+                      >
+                        <svg
+                          className="border"
+                          viewBox="0 0 180 60"
+                          height="60px"
+                          width="180px"
+                        >
+                          <polyline
+                            className="bg-line"
+                            points="179,1 179,59 1,59 1,1 179,1"
+                          ></polyline>
+                          <polyline
+                            className="hl-line"
+                            points="179,1 179,59 1,59 1,1 179,1"
+                          ></polyline>
+                        </svg>
+                        <span>buy</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )
             ) : (
               <>
                 <div

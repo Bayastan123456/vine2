@@ -12,6 +12,10 @@
   color: black;
 }
 
+/* .sidebar_box {
+    height: ;
+  } */
+
 .sidebar a:hover {
   color: aqua;
 }
@@ -59,7 +63,7 @@
 
 .box__cart {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 2px solid gray;
 }
 .box__cart > img {
@@ -98,10 +102,11 @@
 }
 
 .total__box {
-  width: 100%;
+  width: 405px;
   height: 80px;
-  /* position: absolute;
-  bottom: 0; */
+  position: relative;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,4 +128,7 @@
 }
 .total__box > button:hover {
   border: 2px solid rgb(11, 232, 232);
+}
+.img__svg-cart {
+  height: 30px;
 }

@@ -3,3 +3,4 @@ export const calcTotalPrice = (products) => {
     return (acc += curr.subPrice);
   }, 0);
 };
+export const calcSubPrice = (product) => +product.count * product.item.price;
