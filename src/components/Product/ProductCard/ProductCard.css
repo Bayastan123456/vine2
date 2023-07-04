@@ -65,6 +65,7 @@
 
 .card_item>.slide_wrapper {
   margin: 0.7em 0;
+  transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 .card_item_text {
