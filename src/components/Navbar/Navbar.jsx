@@ -47,6 +47,9 @@ const Navbar = () => {
           <></>
         )}
       </div>
+      <div className="nav_aboutUs" onClick={()=>navigate("/about")}>
+        ABOUT US
+      </div>
       <div className="nav_logo">
         <img className="nav_logo__villa" src={img1} alt="" />
       </div>
