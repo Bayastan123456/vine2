@@ -15,7 +15,7 @@ const Products = () => {
   });
 
   const [page, setPage] = useState(1);
-  const itemPage = 3;
+  const itemPage = 10;
   const count = Math.ceil(searchProduct.length / itemPage);
 
   function currentData() {
