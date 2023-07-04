@@ -1,4 +1,4 @@
-/* * {
+* {
   box-sizing: content-box;
 }
 
@@ -52,6 +52,7 @@
 }
 
 .imgBlock span {
+  color: dimgrey;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,4 +70,16 @@
 
 .active span {
   color: aqua;
-} */
+}
+
+
+.imgBlock a {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 23px;
+  padding-top: 20px;
+  position: absolute;
+  bottom: -20px;
+  text-decoration: none;
+  color: aqua;
+}
