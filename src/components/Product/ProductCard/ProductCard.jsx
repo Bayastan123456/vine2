@@ -6,37 +6,37 @@ import { useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const { products } = useSelector((state) => state.products);
+  console.log(products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   useEffect(() => {
     dispatch(getProducts());
   }, []);
 
   return (
-    <>
+    <div className="product_cards_container">
       {products.map((item) => (
         <div className="product_cards" key={item.id}>
           <div className="card_item">
-            <img src={item.image} alt="nothing but a bottle of wine" />
+            <img src={item?.image} alt="nothing but a bottle of wine" />
             <div className="slide_wrapper" id="font_nanum">
               <div className="relative">
-                <h3>{item.name}</h3>
+                <h3>{item?.name}</h3>
               </div>
               <div className="absolute">
-                <h3>{item.name}</h3>
+                <h3>{item?.name}</h3>
               </div>
             </div>
             <div className="card_item_text">
-              <h5 id="font_pathway">{item.sort}</h5>
+              <h5 id="font_pathway">{item?.sort}</h5>
             </div>
-            <button onClick={() => navigate(`/details/${item.id}`)}>
+            <button onClick={() => navigate(`/details/${item?.id}`)}>
               DISCOVER
             </button>
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

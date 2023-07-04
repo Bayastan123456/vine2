@@ -14,7 +14,8 @@
 
 .productCard_wrapper {
   position: relative;
-  display: flex;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .sidebar {
@@ -24,9 +25,16 @@
   top:50%;
 }
 
-.product_cards {
-  margin: 0 0 0 13%;
+.product_cards_container{
+  position: absolute;
+  top: 0;
+  left: 12vw;
   display: flex;
+  flex-wrap: wrap;
+}
+
+.product_cards {
+  margin: 0.5em 1em;
 }
 
 .card_item {
@@ -81,27 +89,3 @@
   transition: border 1s ease-in, color 1s ease-in;
 }
 
-/* ! slide effect for text  start*/
-.slide_wrapper {
-  position: relative;
-}
-
-.relative {
-  color: rgb(255, 255, 255);
-  transition: all 1s ease-in-out;
-}
-
-.absolute {
-  color: #323232e4;
-  position: absolute;
-  top: 0;
-  transition: all 1s ease-in-out;
-  clip-path: inset(0 0 0 0);
-}
-
-.absolute:hover {
-  transition: all 1s ease-in-out;
-  clip-path: inset(0 0 0 100%);
-}
-
-/* ! slide effect for text  end*/

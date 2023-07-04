@@ -94,8 +94,12 @@ const ProductDetails = () => {
         <div className="glav__datail">
           <div className="box1__detail">
             <div className="details__box-title">
-              <img className="details__img" src={oneProduct.image} alt="vino" />
-              <h3 className="details__title">{oneProduct.name}</h3>
+              <img
+                className="details__img"
+                src={oneProduct?.image}
+                alt="vino"
+              />
+              <h3 className="details__title">{oneProduct?.name}</h3>
             </div>
           </div>
           <div className="box2__detail">
@@ -104,11 +108,11 @@ const ProductDetails = () => {
               ref={ref}
             >
               <h4>
-                {oneProduct.sort}
+                {oneProduct?.sort}
                 <img className="imgDetails" src={image6} alt="error" />
               </h4>
               <h4>
-                {oneProduct.descr}
+                {oneProduct?.descr}
                 <img className="imgDetails" src={image7} alt="error" />
               </h4>
               <h4>

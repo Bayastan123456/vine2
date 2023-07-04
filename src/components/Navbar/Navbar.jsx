@@ -13,7 +13,6 @@ import { clearInputs } from "../../store/auth/authSlice";
 import { ADMIN } from "../../const";
 import Cart from "../cart/Cart";
 const Navbar = () => {
-  //   useEffect(() => {}, []);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,7 +25,12 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav_left__side">
-        <img className="nav_left__glass" src={img2} alt="" />
+        <img
+          className="nav_left__glass"
+          src={img2}
+          alt=""
+          onClick={() => navigate("/menu")}
+        />
         <img className="nav_left__bottle" src={img3} alt="" />
         {user === ADMIN ? (
           <img

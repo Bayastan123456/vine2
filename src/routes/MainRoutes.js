@@ -11,6 +11,7 @@ import AdminPage from "../pages/AdminPage";
 import { useSelector } from "react-redux";
 import { ADMIN } from "../const";
 import EditProduct from "../components/Product/EditProduct/EditProduct";
+import Menu from "../components/Menu/Menu";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -54,6 +55,11 @@ const MainRoutes = () => {
       link: "/edit/:id",
       element: <EditProduct />,
       id: 8,
+    },
+    {
+      link: "/menu",
+      element: <Menu />,
+      id: 9,
     },
   ];
 
