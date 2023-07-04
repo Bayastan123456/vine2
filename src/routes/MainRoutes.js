@@ -5,13 +5,13 @@ import Products from "../pages/ProductPage/Products";
 import NotFound from "../pages/NotFoundPage/NotFound";
 import Login from "../components/auth/Login/Login";
 import Register from "../components/auth/Register/Register";
-import Activation from "../components/auth/Activation/Activation";
 import ProductDetails from "../components/Product/Details/ProductDetails";
 import AdminPage from "../pages/AdminPage";
 import { useSelector } from "react-redux";
 import { ADMIN } from "../const";
 import EditProduct from "../components/Product/EditProduct/EditProduct";
 import Menu from "../components/Menu/Menu";
+import ShopMainScreen from "../components/Product/ShopMainScreen/ShopMainScreen";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -42,23 +42,23 @@ const MainRoutes = () => {
       id: 5,
     },
     {
-      link: "/activation",
-      element: <Activation />,
-      id: 6,
-    },
-    {
       link: "/details/:id",
       element: <ProductDetails />,
-      id: 7,
+      id: 6,
     },
     {
       link: "/edit/:id",
       element: <EditProduct />,
-      id: 8,
+      id: 7,
     },
     {
       link: "/menu",
       element: <Menu />,
+      id: 8,
+    },
+    {
+      link: "/shop",
+      element: <ShopMainScreen />,
       id: 9,
     },
   ];

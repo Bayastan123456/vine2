@@ -16,12 +16,15 @@ import {
 } from "../../../store/products/productAction";
 import { calcTotalPrice } from "../../function";
 import { getCart } from "../../../store/cart/cartSlice";
+import ProductComments from "../ProductComment/ProductComment";
+import AddCommentForm from "../AddCommentForm/AddCommentForm";
 
 const ProductDetails = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [checkProduct, setCheckProduct] = useState(false);
   const ref = useRef(null);
   const { user } = useSelector((state) => state.auth);
+  const { productId } = useParams();
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -313,6 +316,12 @@ const ProductDetails = () => {
               </>
             )}
           </div>
+        </div>
+        <div className="commentBlock">
+          <h2 className="commentBlockTitel">Product Details</h2>
+          <h3 className="commentBlockId">Product ID: {productId}</h3>
+          <ProductComments productId={productId} />
+          <AddCommentForm productId={productId} />
         </div>
       </>
     </>

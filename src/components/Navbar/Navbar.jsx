@@ -45,7 +45,12 @@ const Navbar = () => {
           alt=""
           onClick={() => navigate("/menu")}
         />
-        <img className="nav_left__bottle" src={img3} alt="" />
+        <img
+          className="nav_left__bottle"
+          src={img3}
+          alt=""
+          onClick={() => navigate("/shop")}
+        />
         {user === ADMIN ? (
           <img
             className="nav_right__bottle"
@@ -61,7 +66,9 @@ const Navbar = () => {
         <img className="nav_logo__villa" src={img1} alt="" />
       </div>
       <div className="nav_right__side">
-        <button className="nav_right__btn">SE</button>
+        <button className="nav_right__btn" onClick={() => navigate("/search")}>
+          SE
+        </button>
         {user ? (
           <button
             className="nav_right__btn"

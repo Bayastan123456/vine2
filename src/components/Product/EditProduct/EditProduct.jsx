@@ -162,7 +162,7 @@ const EditProduct = () => {
           </div> */}
         </div>
         <button className="btn__admin" onClick={handleEditProduct}>
-          <span class="box__admin">Save</span>
+          <span className="box__admin">Save</span>
         </button>
       </div>
     </div>
