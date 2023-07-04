@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authListener, handleLogout } from "../../store/auth/authActions";
 import { clearInputs } from "../../store/auth/authSlice";
 import { ADMIN } from "../../const";
+import Cart from "../cart/Cart";
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,6 +21,17 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(authListener());
   }, []);
+
+  // const prevScrollpos = window.scrollY;
+  // window.onscroll = function () {
+  //   const currentScrollPos = window.scrollY;
+  //   if (prevScrollpos > currentScrollPos) {
+  //     document.getElementsByTagName("nav").style.top = "0";
+  //   } else {
+  //     document.getElementsByTagName("nav").style.top = "-85px";
+  //   }
+  //   prevScrollpos = currentScrollPos;
+  // };
 
   return (
     <nav>
@@ -78,8 +90,9 @@ const Navbar = () => {
             <img className="nav_right_img" src={img4} alt="" />
           </button>
         )}
-        <button className="nav_right__btn">
-          <img className="nav_right_img" src={img5} alt="" />
+        <button className="nav_right__btn" id="btn__nav">
+          {/* <img className="nav_right_img" src={img5} alt="" /> */}
+          <Cart />
         </button>
       </div>
     </nav>
