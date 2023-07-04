@@ -21,9 +21,6 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(authListener());
   }, []);
-  window.addEventListener("keypress", function () {
-    alert(window.pageYOffset);
-  });
 
   // const prevScrollpos = window.scrollY;
   // window.onscroll = function () {
