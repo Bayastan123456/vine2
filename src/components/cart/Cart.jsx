@@ -56,7 +56,7 @@ const Cart = () => {
   }
   return (
     <div>
-      <div id="mySidebar" className="sidebar">
+      <div id="mySidebar" className="sidebar__main">
         <a className="closebtn" onClick={() => closeNav()}>
           ×
         </a>
