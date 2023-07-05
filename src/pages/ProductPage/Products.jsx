@@ -101,18 +101,21 @@ const Products = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          margin: "50px 0",
-          backgroundColor: "white",
+          margin: "0 auto 2%",
+          background: "none",
           width: "100%",
-          marginTop: "470px",
+          marginTop: "100vh",
+          color: 'white'
         }}
       >
-        <Pagination
-          color="primary"
-          count={count}
-          page={page}
-          onChange={handleChange}
-        />
+        <Box sx={{width:"fit-content", borderRadius:"20px", background: "rgba(255, 255, 255, 0.5)"}}>
+          <Pagination
+            color="primary"
+            count={count}
+            page={page}
+            onChange={handleChange}
+          />
+        </Box>
       </Box>
     </>
   );
