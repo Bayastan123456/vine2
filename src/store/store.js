@@ -4,7 +4,6 @@ import { productReducer } from "./products/productSlice";
 import { cartReducers } from "./cart/cartSlice";
 import commentReducer from './comment/commentSlice'
 
-
 export const store = configureStore({
   reducer: {
     auth: authReducer,
