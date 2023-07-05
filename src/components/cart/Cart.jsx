@@ -18,7 +18,6 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const { products, totalPrice } = useSelector((state) => state.cart.cart);
-  console.log(products, totalPrice);
   useEffect(() => {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {

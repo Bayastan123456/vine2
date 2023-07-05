@@ -190,6 +190,11 @@
   font-weight: 600;
 }
 
+.commentBlock {
+  position: relative;
+  z-index: 1000;
+}
+
 .commentBlockTitel {
   margin-left: 42%;
 }

@@ -22,17 +22,6 @@ const Navbar = () => {
     dispatch(authListener());
   }, []);
 
-  // const prevScrollpos = window.scrollY;
-  // window.onscroll = function () {
-  //   const currentScrollPos = window.scrollY;
-  //   if (prevScrollpos > currentScrollPos) {
-  //     document.getElementsByTagName("nav").style.top = "0";
-  //   } else {
-  //     document.getElementsByTagName("nav").style.top = "-85px";
-  //   }
-  //   prevScrollpos = currentScrollPos;
-  // };
-
   return (
     <nav>
       <div className="nav_left__side">

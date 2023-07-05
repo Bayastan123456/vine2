@@ -1,11 +1,22 @@
-/* * {
+* {
   box-sizing: content-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Нестандартный стиль */
 }
 
 .itemScreen {
   display: flex;
   flex-direction: column;
-  width: 1075vh;
+  width: 2500vh;
   overflow: hidden;
   scroll-behavior: smooth;
   margin-bottom: 0px;
@@ -52,6 +63,7 @@
 }
 
 .imgBlock span {
+  color: dimgrey;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,4 +81,15 @@
 
 .active span {
   color: aqua;
-} */
+}
+
+.imgBlock a {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 23px;
+  padding-top: 20px;
+  position: absolute;
+  bottom: -20px;
+  text-decoration: none;
+  color: aqua;
+}
