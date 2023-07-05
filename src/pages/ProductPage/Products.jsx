@@ -109,7 +109,6 @@ const Products = () => {
       >
         <Pagination
           color="primary"
-          sx={{ color: "white" }}
           count={count}
           page={page}
           onChange={handleChange}
