@@ -14,8 +14,6 @@
 
 .productCard_wrapper {
   position: relative;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
 }
 
 .sidebar {
@@ -54,7 +52,7 @@
   transition: all 1.5s, border 1s ease-in;
 }
 
-.card_item > .absolute:hover {
+.card_item:hover .absolute {
   transition: all 1s ease-in-out;
   clip-path: inset(0 0 0 100%);
 }
