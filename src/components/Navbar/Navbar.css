@@ -7,15 +7,22 @@ nav {
   z-index: 100;
   position: fixed;
   background-color: transparent;
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+.navbar.show {
+  transform: translateY(0);
 }
 
-.nav_aboutUs{
+.nav_aboutUs {
   margin: 1% 1%;
   display: flex;
   cursor: pointer;
-
 }
 
+.navbar.hide {
+  transform: translateY(-100%);
+}
 .nav_logo__villa {
   position: absolute;
   top: 0;
@@ -71,10 +78,10 @@ nav {
   cursor: pointer;
 }
 
-.nav_right__side{
+.nav_right__side {
   margin: 0 0 auto auto;
 }
-#btn__nav{
+#btn__nav {
   border: none;
 }
 

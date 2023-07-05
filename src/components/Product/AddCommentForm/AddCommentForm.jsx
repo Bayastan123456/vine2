@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../../store/comment/commentSlice";
-import './AddCommentForm.css'
+import { addComment, likeComment } from "../../../store/comment/commentSlice";
+import "./AddCommentForm.css";
 
 const AddCommentForm = ({ productId }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const AddCommentForm = ({ productId }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addComment({ productId, comment }));
+    dispatch(addComment({ productId, comment: { text: comment, likes: 0 } }));
     setComment("");
   };
 
@@ -23,7 +23,9 @@ const AddCommentForm = ({ productId }) => {
         placeholder="Enter your comment"
         className="formInput"
       />
-      <button type="submit" className="formButton">Submit</button>
+      <button type="submit" className="formButton">
+        Submit
+      </button>
     </form>
   );
 };
