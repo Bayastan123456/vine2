@@ -45,20 +45,12 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <nav className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
-      <div className="nav_left__side">
-        <img
-          className="nav_left__glass"
-          src={img2}
-          alt=""
-          onClick={() => navigate("/menu")}
-        />
-        <img
-          className="nav_left__bottle"
-          src={img3}
-          alt=""
-          onClick={() => navigate("/shop")}
-        />
+    <>
+      <navburg>
+      <div className="nav_logo">
+          <img className="nav_logo__villa" src={img1} alt="" onClick={()=>navigate("/about")}/>
+        </div>
+      <div className="nav_burger">
         {user === ADMIN ? (
           <img
             className="nav_right__bottle"
@@ -69,44 +61,91 @@ const Navbar = () => {
         ) : (
           <></>
         )}
-      </div>
-      <div className="nav_aboutUs" onClick={() => navigate("/about")}>
-        ABOUT US
-      </div>
-      <div className="nav_logo">
-        <img className="nav_logo__villa" src={img1} alt="" />
-      </div>
-      <div className="nav_right__side">
-        <button className="nav_right__btn" onClick={() => navigate("/search")}>
-          SE
-        </button>
-        {user ? (
-          <button
-            className="nav_right__btn"
-            onClick={() => {
-              dispatch(handleLogout(navigate));
-              dispatch(clearInputs());
-            }}
-          >
-            <img className="nav_right_img" src={img4} alt="" />
+          <ul className="nav_burgerList">
+            <li className="nav_burgerList_item" onClick={() => navigate("/menu")}>MENU</li>
+            <li className="nav_burgerList_item" onClick={() => navigate("/shop")}>SHOP</li>
+              {user ? (
+                <li
+                  className="nav_burgerList_item"
+                  onClick={() => {
+                    dispatch(handleLogout(navigate));
+                    dispatch(clearInputs());
+                  }}
+                >
+                  LOG OUT
+                </li>
+                ) : (
+                  <li
+                    className="nav_burgerList_item"
+                    onClick={() => {
+                      navigate("/login");
+                      dispatch(clearInputs());
+                    }}
+                  >
+                    LOG IN
+                  </li>
+              )}
+          </ul>
+        </div>
+      </navburg>
+      <nav className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
+        <div className="nav_left__side">
+          <img
+            className="nav_left__glass"
+            src={img2}
+            alt=""
+            onClick={() => navigate("/menu")}
+          />
+          <img
+            className="nav_left__bottle"
+            src={img3}
+            alt=""
+            onClick={() => navigate("/shop")}
+          />
+          {user === ADMIN ? (
+            <img
+              className="nav_right__bottle"
+              src={img6}
+              alt="error"
+              onClick={() => navigate("/admin")}
+            />
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className="nav_logo">
+          <img className="nav_logo__villa" src={img1} alt="" onClick={()=>navigate("/about")}/>
+        </div>
+        <div className="nav_right__side">
+         
+          {user ? (
+            <button
+              className="nav_right__btn"
+              onClick={() => {
+                dispatch(handleLogout(navigate));
+                dispatch(clearInputs());
+              }}
+            >
+              <img className="nav_right_img" src={img4} alt="" />
+            </button>
+          ) : (
+            <button
+              className="nav_right__btn"
+              onClick={() => {
+                navigate("/login");
+                dispatch(clearInputs());
+              }}
+            >
+              <img className="nav_right_img" src={img4} alt="" />
+            </button>
+          )}
+          <button className="nav_right__btn" id="btn__nav">
+            {/* <img className="nav_right_img" src={img5} alt="" /> */}
+            <Cart />
           </button>
-        ) : (
-          <button
-            className="nav_right__btn"
-            onClick={() => {
-              navigate("/login");
-              dispatch(clearInputs());
-            }}
-          >
-            <img className="nav_right_img" src={img4} alt="" />
-          </button>
-        )}
-        <button className="nav_right__btn" id="btn__nav">
-          {/* <img className="nav_right_img" src={img5} alt="" /> */}
-          <Cart />
-        </button>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 };
 
