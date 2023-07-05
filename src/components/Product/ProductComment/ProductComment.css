@@ -12,9 +12,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.productCommentsTitel {
-  /* padding: 5px auto; */
-}
+
 .commentItem {
   list-style: none;
   border-bottom: 2px solid aqua;
