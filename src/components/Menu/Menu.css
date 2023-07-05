@@ -150,8 +150,8 @@
   transform: matrix3d(1, 0, 0, 0, 0, 1.2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
-.menu_menu_rightOptionsList {
-}
+/* .menu_menu_rightOptionsList {
+} */
 
 .right_menuImg {
   position: absolute;

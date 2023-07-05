@@ -318,10 +318,8 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="commentBlock">
-          <h2 className="commentBlockTitel">Product Details</h2>
-          <h3 className="commentBlockId">Product ID: {productId}</h3>
-          <ProductComments productId={productId} />
           <AddCommentForm productId={productId} />
+          <ProductComments productId={productId} />
         </div>
       </>
     </>

@@ -79,16 +79,16 @@ export const handleLogout = createAsyncThunk(
   }
 );
 
-export const handlePasswordReset = (email) => {
-  return (dispatch) => {
-    fire
-      .auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        // Обработка успешной отправки сброса пароля
-      })
-      .catch((error) => {
-        // Обработка ошибок при отправке сброса пароля
-      });
-  };
-};
+// export const handlePasswordReset = (email) => {
+//   return (dispatch) => {
+//     fire
+//       .auth()
+//       .sendPasswordResetEmail(email)
+//       .then(() => {
+//         // Обработка успешной отправки сброса пароля
+//       })
+//       .catch((error) => {
+//         // Обработка ошибок при отправке сброса пароля
+//       });
+//   };
+// };

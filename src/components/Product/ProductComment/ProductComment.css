@@ -1,24 +1,31 @@
-.productCommentsTitel {
-    margin-left: 40.5%;
-}
-
 .productCommentP {
-    margin-left: 45%;
-    margin-bottom: 50px;
-    margin-top: 50px;
+  margin-left: 45%;
+  /* margin-bottom: 50px; */
+  margin-top: 50px;
 }
 
 .commentList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+  width: 100%;
+  margin: auto;
+  display: flex;
 
+  justify-content: center;
+  flex-direction: column;
+}
+.productCommentsTitel {
+  /* padding: 5px auto; */
+}
 .commentItem {
-    margin: 10px 0;
-    padding: 0;
-    width: auto;
-    height: auto;
-    font-size: 40px;
+  list-style: none;
+  border-bottom: 2px solid aqua;
+  margin-bottom: 20px;
+  display: flex;
+  padding-left: 50px;
+  width: auto;
+  height: auto;
+  font-size: 40px;
+}
+.productComment__Box {
+  z-index: 5;
+  background-color: rgb(18 18 19);
 }
