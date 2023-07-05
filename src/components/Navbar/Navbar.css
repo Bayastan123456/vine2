@@ -2,7 +2,6 @@ nav {
   width: 100%;
   height: 85px;
   display: flex;
-  justify-content: space-between;
   padding-top: 1%;
   align-items: start;
   z-index: 100;
@@ -15,10 +14,21 @@ nav {
   transform: translateY(0);
 }
 
+.nav_aboutUs {
+  margin: 1% 1%;
+  display: flex;
+  cursor: pointer;
+}
+
 .navbar.hide {
   transform: translateY(-100%);
 }
 .nav_logo__villa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 110px;
   height: 65px;
   cursor: pointer;
@@ -68,6 +78,9 @@ nav {
   cursor: pointer;
 }
 
+.nav_right__side {
+  margin: 0 0 auto auto;
+}
 #btn__nav {
   border: none;
 }

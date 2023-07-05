@@ -27,6 +27,7 @@
 
 .menu_menu_left {
   margin: 0 5%;
+  z-index: 1;
 }
 
 .menu_menu_left > h5 {
@@ -58,7 +59,10 @@
 
 .menu_menu_central {
   position: absolute;
-  left: 46.5%;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,7 +132,7 @@
 
 .menu_menu_right {
   position: absolute;
-  right: 15vw;
+  left: 55%;
   margin: 0 5%;
 }
 
@@ -147,13 +151,12 @@
 }
 
 .menu_menu_rightOptionsList {
-  display: flex;
 }
 
 .right_menuImg {
   position: absolute;
   top: -30%;
-  left: 25%;
+  left: 30%;
   width: 100%;
 }
 
