@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "./MainScreenInlineItem.css";
 import img from "../../../images/Diamant-2018-300.png";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getProducts,
+  addProduct,
+  getOneProduct,
+} from "../../../store/products/productAction";
+import { useNavigate } from "react-router";
 
 const MainScreenInlineItem = () => {
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -10,16 +17,19 @@ const MainScreenInlineItem = () => {
   const [scrollX, setScrollX] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
+  const [activeLink, setActiveLink] = useState(false);
 
-  const arr = useMemo(
-    () => [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30,
-    ],
-    []
-  );
+  const products = useSelector((state) => state.products.products);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const arr = useMemo(() => products.map((product) => product.id), [products]);
   const totalUlCount = useMemo(() => Math.ceil(arr.length / 5), [arr]);
-  const ulsPerRow = 4;
+  const ulsPerRow = 3; // Количество списков ul в каждом ряду
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -37,6 +47,10 @@ const MainScreenInlineItem = () => {
         setStartY(currentY);
       }
     };
+
+    const active = document.querySelector(".active");
+
+    active ? setActiveLink(true) : setActiveLink(false);
 
     document.addEventListener("mousemove", handleMouseMove);
 
@@ -97,51 +111,158 @@ const MainScreenInlineItem = () => {
     setActiveIndex(index);
   };
 
+  const ulKey = "list"; // Ключ списка <ul>, чтобы гарантировать его уникальность
+
   return (
     <div
-      className="itemScreen"
-      onMouseDown={() => setIsMouseDown(true)}
+      onMouseDown={(event) => {
+        setIsMouseDown(true);
+        setStartX(event.pageX);
+        setStartY(event.pageY);
+      }}
       onDoubleClick={handleDoubleClick}
-      style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
+      onMouseMove={(event) => {
+        if (isDragging) {
+          const currentX = event.pageX;
+          const currentY = event.pageY;
+
+          const deltaX = startX - currentX;
+          const deltaY = startY - currentY;
+
+          setScrollX((prevScrollX) => prevScrollX + deltaX);
+          setScrollY((prevScrollY) => prevScrollY + deltaY);
+
+          setStartX(currentX);
+          setStartY(currentY);
+        }
+      }}
+      onMouseUp={() => {
+        setIsMouseDown(false);
+        setIsDragging(false);
+      }}
+      onMouseLeave={() => {
+        setIsMouseDown(false);
+        setIsDragging(false);
+      }}
     >
       <div
-        style={{ display: "flex", flexWrap: "wrap" }}
-        className="itemScreenSecond"
+        className="itemScreen"
+        style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
       >
-        {Array.from({ length: totalUlCount }).map((_, index) => {
-          const startIndex = index * 5;
-          const endIndex = startIndex + 5;
-          const subArr = arr.slice(startIndex, endIndex);
+        <div style={{ display: "flex" }}>
+          {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
+            <ul
+              key={`${ulKey}-${rowIndex}`}
+              className={`${ulKey} itemListProduct`}
+              style={{
+                width: `calc(100% / ${ulsPerRow})`,
+                height: `calc(100% / ${Math.ceil(totalUlCount / ulsPerRow)})`,
+              }}
+              onMouseDown={handleUlMouseDown}
+              onMouseMove={handleUlMouseMove}
+              onMouseUp={handleUlMouseUp}
+              onMouseLeave={handleUlMouseLeave}
+            >
+              {arr.map((id, liIndex) => {
+                const product = products.find((item) => item.id === id);
+                if (product) {
+                  const liKey = `li-${ulKey}-${liIndex}`;
 
-          return (
-            <React.Fragment key={index}>
-              {Array.from({ length: ulsPerRow }).map((_, repetitionIndex) => (
-                <ul
-                  key={`${index}-${repetitionIndex}`}
-                  style={{ flex: `0 0 calc(100% / ${ulsPerRow})` }}
-                  onMouseDown={handleUlMouseDown}
-                  onMouseMove={handleUlMouseMove}
-                  onMouseUp={handleUlMouseUp}
-                  onMouseLeave={handleUlMouseLeave}
-                  className="itemListProduct"
-                >
-                  {subArr.map((e, i) => (
+                  return (
                     <li
-                      key={e}
-                      className={`itemProduct ${activeIndex === startIndex + i ? "active" : ""}`}
-                      onClick={() => handleLiClick(startIndex + i)}
+                      key={liKey}
+                      className={`list-${ulKey}-item itemProduct ${
+                        liIndex === activeIndex ? "active" : ""
+                      }`}
+                      onClick={() => handleLiClick(liIndex)}
                     >
                       <div className="imgBlock">
-                        <img src={img} alt="#" width="30%" height="80%" />
-                        <span>Diamant</span>
+                        <img
+                          src={product.image}
+                          alt="product"
+                          width="30%"
+                          height="80%"
+                        />
+                        <span>{product.name}</span>
+
+                        {liIndex === activeIndex && (
+                          <a
+                            onClick={() => navigate(`/details/${product?.id}`)}
+                            className="getDeteilsProduct"
+                          >
+                            Get Details
+                          </a>
+                        )}
                       </div>
                     </li>
-                  ))}
-                </ul>
-              ))}
-            </React.Fragment>
-          );
-        })}
+                  );
+                }
+                return null;
+              })}
+            </ul>
+          ))}
+        </div>
+      </div>
+      <div
+        className="itemScreen"
+        style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
+      >
+        <div style={{ display: "flex", marginLeft: "210px" }}>
+          {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
+            <ul
+              key={`${ulKey}-${rowIndex}`}
+              className={`${ulKey} itemListProduct`}
+              style={{
+                width: `calc(100% / ${ulsPerRow})`,
+                height: `calc(100% / ${Math.ceil(totalUlCount / ulsPerRow)})`,
+              }}
+              onMouseDown={handleUlMouseDown}
+              onMouseMove={handleUlMouseMove}
+              onMouseUp={handleUlMouseUp}
+              onMouseLeave={handleUlMouseLeave}
+            >
+              {arr
+                .slice()
+                .reverse()
+                .map((id, liIndex) => {
+                  const product = products.find((item) => item.id === id);
+                  if (product) {
+                    const liKey = `li-${ulKey}-${liIndex}`;
+
+                    return (
+                      <li
+                        key={liKey}
+                        className={`list-${ulKey}-item itemProduct ${
+                          liIndex === activeIndex ? "active" : ""
+                        }`}
+                        onClick={() => handleLiClick(liIndex)}
+                      >
+                        <div className="imgBlock">
+                          <img
+                            src={product.image}
+                            alt="product"
+                            width="30%"
+                            height="80%"
+                          />
+                          <span>{product.name}</span>
+
+                          {liIndex === activeIndex && (
+                            <a
+                              onClick={() => navigate(`/details/${product?.id}`)}
+                              className="getDeteilsProduct"
+                            >
+                              Get Details
+                            </a>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  }
+                  return null;
+                })}
+            </ul>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -70,7 +70,7 @@ const Navbar = () => {
           <></>
         )}
       </div>
-      <div className="nav_aboutUs" onClick={()=>navigate("/about")}>
+      <div className="nav_aboutUs" onClick={() => navigate("/about")}>
         ABOUT US
       </div>
       <div className="nav_logo">
