@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addComment } from "../../../store/comment/commentSlice";
+import { addComment, likeComment } from "../../../store/comment/commentSlice";
 import "./AddCommentForm.css";
 
 const AddCommentForm = ({ productId }) => {
@@ -9,7 +9,7 @@ const AddCommentForm = ({ productId }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addComment({ productId, comment }));
+    dispatch(addComment({ productId, comment: { text: comment, likes: 0 } }));
     setComment("");
   };
 

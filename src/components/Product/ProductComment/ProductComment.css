@@ -24,8 +24,21 @@
   width: auto;
   height: auto;
   font-size: 40px;
+  justify-content: space-between;
 }
 .productComment__Box {
   z-index: 5;
   background-color: rgb(18 18 19);
+}
+.productComment__btn {
+  border: none;
+}
+.comment__p {
+  display: flex;
+  align-items: center;
+  width: 15%;
+}
+.comment__p > p {
+  margin: 0;
+  font-size: 18px;
 }
