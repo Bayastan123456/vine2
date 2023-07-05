@@ -82,19 +82,22 @@ const Menu = () => {
         {
           category: "ALL PRODUCTS",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/tutti-1.jpg",
-          link: "/product"
+          link: "/product",
         },
         {
           category: "FRANCIACORTA",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/franciacorta.jpg",
+          link: "/product",
         },
         {
           category: "WINES",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/vini-1.jpg",
+          link: "/product",
         },
         {
           category: "GRAPPE",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/grappe-1.jpg",
+          link: "/product",
         },
       ],
     },
