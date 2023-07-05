@@ -21,9 +21,12 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(authListener());
   }, []);
+<<<<<<< HEAD
   // window.addEventListener("keypress", function () {
   //   alert(window.pageYOffset);
   // });
+=======
+>>>>>>> fe861f91ac0055b2d1cc277dd5871f53e441b254
 
   // const prevScrollpos = window.scrollY;
   // window.onscroll = function () {
@@ -61,6 +64,9 @@ const Navbar = () => {
         ) : (
           <></>
         )}
+      </div>
+      <div className="nav_aboutUs" onClick={()=>navigate("/about")}>
+        ABOUT US
       </div>
       <div className="nav_logo">
         <img className="nav_logo__villa" src={img1} alt="" />

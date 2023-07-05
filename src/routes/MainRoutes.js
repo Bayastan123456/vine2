@@ -12,6 +12,7 @@ import { ADMIN } from "../const";
 import EditProduct from "../components/Product/EditProduct/EditProduct";
 import Menu from "../components/Menu/Menu";
 import ShopMainScreen from "../components/Product/ShopMainScreen/ShopMainScreen";
+import AboutUs from "../components/AboutUs/AboutUs";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -60,6 +61,11 @@ const MainRoutes = () => {
       link: "/shop",
       element: <ShopMainScreen />,
       id: 9,
+    },
+    {
+      link: "/about",
+      element: <AboutUs />,
+      id: 10,
     },
   ];
 

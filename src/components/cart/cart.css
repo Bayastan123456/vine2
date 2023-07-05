@@ -1,4 +1,4 @@
-.sidebar {
+.sidebar__main {
   height: 100%;
   width: 0;
   position: fixed;
@@ -16,11 +16,11 @@
     height: ;
   } */
 
-.sidebar a:hover {
+.sidebar__main a:hover {
   color: aqua;
 }
 
-.sidebar .closebtn {
+.sidebar__main .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -33,7 +33,7 @@
   cursor: pointer;
   color: white;
   border: none;
-  background-color: rgb(18 18 19);
+  background-color: none;
   color: white;
   font-size: 10px;
 }
@@ -53,10 +53,10 @@
 
 /* На небольших экранах, где высота меньше 450px, измените стиль sidenav (меньше отступов и меньший размер шрифта) */
 @media screen and (max-height: 450px) {
-  .sidebar {
+  .sidebar__main {
     padding-top: 15px;
   }
-  .sidebar a {
+  .sidebar__main a {
     font-size: 18px;
   }
 }
