@@ -43,8 +43,8 @@
     {
       "name": "BRIOLETTE",
       "image": "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/10/Briolette-2.png",
-      "sort": "Wine",
-      "descr": "FRANCIACORTA DOGG",
+      "sort": "FRANCIACORTA DOGG",
+      "descr": "Wine",
       "price": "29.99",
       "id": 6
     },

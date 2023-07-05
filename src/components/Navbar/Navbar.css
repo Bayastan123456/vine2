@@ -8,10 +8,16 @@ nav {
   z-index: 100;
   position: fixed;
   background-color: transparent;
-  /* transition: top 0.3s;
-  top: 0; */
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+.navbar.show {
+  transform: translateY(0);
 }
 
+.navbar.hide {
+  transform: translateY(-100%);
+}
 .nav_logo__villa {
   width: 110px;
   height: 65px;

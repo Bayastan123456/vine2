@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import img1 from "./image/imageLogo.png";
 import img2 from "./image/14.png";
@@ -21,20 +21,31 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(authListener());
   }, []);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
-  // const prevScrollpos = window.scrollY;
-  // window.onscroll = function () {
-  //   const currentScrollPos = window.scrollY;
-  //   if (prevScrollpos > currentScrollPos) {
-  //     document.getElementsByTagName("nav").style.top = "0";
-  //   } else {
-  //     document.getElementsByTagName("nav").style.top = "-85px";
-  //   }
-  //   prevScrollpos = currentScrollPos;
-  // };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const visibleOffset = 100; // Определите необходимое смещение для скрытия/появления навбара
+
+      if (prevScrollPos > currentScrollPos) {
+        setIsNavbarVisible(true);
+      } else {
+        setIsNavbarVisible(false);
+      }
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   return (
-    <nav>
+    <nav className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
       <div className="nav_left__side">
         <img
           className="nav_left__glass"
