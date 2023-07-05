@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   position: relative;
+  width: 100%;
 }
 
 .menu_bg > img {

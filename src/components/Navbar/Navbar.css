@@ -77,3 +77,46 @@ nav {
 #btn__nav{
   border: none;
 }
+
+/* !adaptive */
+navburg{
+  margin: 1em auto;
+  z-index: 1;
+  display: none;
+  width: 100%;
+}
+
+.nav_burgerList{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 660px){
+  nav{
+    display: none;
+  }&
+  navburg{
+    display: block;
+    position: fixed;
+    top: 0;
+  }
+  & .nav_burgerList{
+    margin: 2.5em auto 1em;
+  }
+  & .nav_logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 70px;
+    height: 40px;
+  }& .nav_logo__villa{
+    width: 100%;
+    height: 100%;
+  } & .nav_right__bottle{
+    position: absolute;
+    top: 0;
+  }
+}
