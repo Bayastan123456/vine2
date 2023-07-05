@@ -88,7 +88,7 @@ const Navbar = () => {
           </ul>
         </div>
       </navburg>
-      <nav className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
+      <navtop className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
         <div className="nav_left__side">
           <img
             className="nav_left__glass"
@@ -144,7 +144,7 @@ const Navbar = () => {
             <Cart />
           </button>
         </div>
-      </nav>
+      </navtop>
     </>
   );
 };
