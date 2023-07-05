@@ -8,7 +8,7 @@ const ProductComments = ({ productId }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="productComment__Box">
       <h3 className="productCommentsTitel">Comments for Product {productId}</h3>
       {comments.length === 0 ? (
         <p className="productCommentP">No comments yet.</p>
@@ -16,14 +16,18 @@ const ProductComments = ({ productId }) => {
         <ul className="commentList">
           {comments.map((comment, index) => (
             <li key={index} className="commentItem">
-              {comment.text} (Likes: {comment.likes})
-              <button
-                onClick={() =>
-                  dispatch(likeComment({ productId, commentId: comment.id }))
-                }
-              >
-                Like
-              </button>
+              {comment.text}
+              <div className="comment__p">
+                <p>Likes: {comment.likes}</p>
+                <div
+                  className="productComment__btn"
+                  onClick={() =>
+                    dispatch(likeComment({ productId, commentId: comment.id }))
+                  }
+                >
+                  ❤️
+                </div>
+              </div>
             </li>
           ))}
         </ul>

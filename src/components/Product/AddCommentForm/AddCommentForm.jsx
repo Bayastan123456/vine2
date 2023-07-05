@@ -16,16 +16,18 @@ const AddCommentForm = ({ productId }) => {
   return (
     <form onSubmit={handleSubmit} className="formBlock">
       <h3 className="formTitel">Add Comment for Product {productId}</h3>
-      <input
-        type="text"
-        value={comment}
-        onChange={(event) => setComment(event.target.value)}
-        placeholder="Enter your comment"
-        className="formInput"
-      />
-      <button type="submit" className="formButton">
-        Submit
-      </button>
+      <div className="form__box-forInput">
+        <input
+          type="text"
+          value={comment}
+          onChange={(event) => setComment(event.target.value)}
+          placeholder="Enter your comment"
+          className="formInput"
+        />
+        <button type="submit" className="formButton">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
