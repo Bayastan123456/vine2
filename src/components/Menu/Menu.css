@@ -27,6 +27,7 @@
 
 .menu_menu_left {
   margin: 0 5%;
+  z-index: 1;
 }
 
 .menu_menu_left > h5 {
