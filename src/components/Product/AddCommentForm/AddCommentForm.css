@@ -16,7 +16,7 @@
   border: none;
   outline: none;
   padding: 0.4vw;
-  width: 300px;
+  width: 70%;
   transition: 0.4s;
 }
 .formInput:hover {

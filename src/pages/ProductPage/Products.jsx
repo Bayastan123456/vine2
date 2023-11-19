@@ -27,7 +27,7 @@ const Products = () => {
   });
 
   const [page, setPage] = useState(1);
-  const itemPage = 4;
+  const itemPage = 3;
   const count = Math.ceil(searchProduct.length / itemPage);
 
   function currentData() {
@@ -105,10 +105,16 @@ const Products = () => {
           background: "none",
           width: "100%",
           marginTop: "100vh",
-          color: 'white'
+          color: "white",
         }}
       >
-        <Box sx={{width:"fit-content", borderRadius:"20px", background: "rgba(255, 255, 255, 0.5)"}}>
+        <Box
+          sx={{
+            width: "fit-content",
+            borderRadius: "20px",
+            background: "rgba(255, 255, 255, 0.5)",
+          }}
+        >
           <Pagination
             color="primary"
             count={count}

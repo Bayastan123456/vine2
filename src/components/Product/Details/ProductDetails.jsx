@@ -318,7 +318,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <div className="commentBlock">
-          <AddCommentForm productId={productId} />
+          {/* <AddCommentForm productId={productId} /> */}
           <ProductComments productId={productId} />
         </div>
       </>

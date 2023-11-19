@@ -1,34 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const commentSlice = createSlice({
-  name: "comments",
-  initialState: {},
+const commentsSlice = createSlice({
+  name: "@comments",
+  initialState: [],
   reducers: {
-    addComment(state, action) {
-      const { productId, comment } = action.payload;
-      if (!state[productId]) {
-        state[productId] = [];
-      }
-      state[productId].push(comment);
+    addComment: (state, action) => {
+      state.push({
+        id: action.payload.id,
+        text: action.payload.text,
+        likes: 0,
+      });
     },
-    likeComment(state, action) {
-      const { productId, commentId } = action.payload;
-      const comments = state[productId];
-      if (comments) {
-        const updatedComments = comments.map((comment) => {
-          if (comment.id === commentId) {
-            return {
-              ...comment,
-              likes: comment.likes + 1,
-            };
-          }
-          return comment;
-        });
-        state[productId] = updatedComments;
+    addLike: (state, action) => {
+      const comment = state.find((comment) => comment.id === action.payload);
+      if (comment) {
+        comment.likes += 1;
       }
     },
   },
 });
 
-export const { addComment, likeComment } = commentSlice.actions;
-export default commentSlice.reducer;
+export const { addComment, addLike } = commentsSlice.actions;
+export default commentsSlice.reducer;

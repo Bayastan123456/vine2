@@ -77,6 +77,7 @@ const MainScreenInlineItem = () => {
   };
 
   const handleUlMouseDown = (event) => {
+    // Обработка нажатия кнопки мыши на элемент списка ul
     event.stopPropagation();
     setIsDragging(true);
     setStartX(event.pageX);
@@ -84,6 +85,7 @@ const MainScreenInlineItem = () => {
   };
 
   const handleUlMouseMove = (event) => {
+    // Обработка перемещения мыши по элементу списка ul
     if (isDragging) {
       const currentX = event.pageX;
       const currentY = event.pageY;
@@ -100,14 +102,16 @@ const MainScreenInlineItem = () => {
   };
 
   const handleUlMouseUp = () => {
+    // Обработка отпускания кнопки мыши на элементе списка ul
     setIsDragging(false);
   };
-
   const handleUlMouseLeave = () => {
+    // Обработка выхода мыши за пределы элемента списка ul
     setIsDragging(false);
   };
 
   const handleLiClick = (index) => {
+    // Обработка клика по элементу списка li
     setActiveIndex(index);
   };
 
@@ -248,7 +252,9 @@ const MainScreenInlineItem = () => {
 
                           {liIndex === activeIndex && (
                             <a
-                              onClick={() => navigate(`/details/${product?.id}`)}
+                              onClick={() =>
+                                navigate(`/details/${product?.id}`)
+                              }
                               className="getDeteilsProduct"
                             >
                               Get Details
