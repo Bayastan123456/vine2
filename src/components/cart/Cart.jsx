@@ -53,6 +53,7 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch(getCart(cart));
   }
+
   return (
     <div>
       <div id="mySidebar" className="sidebar__main">
@@ -61,7 +62,7 @@ const Cart = () => {
         </a>
         <div className="sidebar_box">
           {products?.map((elem) => (
-            <div className="box__cart">
+            <div className="box__cart" key={elem.item.id}>
               <img
                 className="img__svg-cart"
                 src={deletSvg}
@@ -107,7 +108,7 @@ const Cart = () => {
       <div id="main">
         <img
           src={img}
-          alt=""
+          alt="error"
           className="openbtn"
           onClick={openNav}
           style={{ width: " 20px", height: "20px" }}

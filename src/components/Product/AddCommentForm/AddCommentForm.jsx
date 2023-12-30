@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addComment, likeComment } from "../../../store/comment/commentSlice";
+
 import "./AddCommentForm.css";
+import { addComments } from "../../../store/comment/commentsActions";
 
 const AddCommentForm = ({ productId }) => {
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(addComment({ productId, comment: { text: comment, likes: 0 } }));
-    setComment("");
+  const handleSubmit = () => {
+    let obj = {
+      comment,
+      id: Date.now(),
+    };
+
+    dispatch(addComments(obj));
   };
 
   return (
-    <form onSubmit={handleSubmit} className="formBlock">
+    <div className="formBlock">
       <h3 className="formTitel">Add Comment for Product {productId}</h3>
       <div className="form__box-forInput">
         <input
@@ -24,11 +28,11 @@ const AddCommentForm = ({ productId }) => {
           placeholder="Enter your comment"
           className="formInput"
         />
-        <button type="submit" className="formButton">
+        <button onClick={handleSubmit} className="formButton">
           Submit
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 

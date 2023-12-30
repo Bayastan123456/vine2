@@ -9,4 +9,4 @@ const CommentItem = ({ comment, onLike }) => {
   );
 };
 
-export default CommentItem
+export default CommentItem;

@@ -1,4 +1,4 @@
-navtop{
+.navbar {
   width: 100%;
   height: 85px;
   display: flex;
@@ -10,7 +10,7 @@ navtop{
   transition: transform 0.3s ease;
   transform: translateY(0);
 }
-navtop:hover {
+.navbar:hover {
   background-color: rgb(18 18 19);
   transition: background-color 1s ease-in-out;
 }
@@ -84,13 +84,16 @@ navtop:hover {
 
 .nav_right__side {
   margin: 0 0 auto auto;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 #btn__nav {
   border: none;
 }
 
 /* !adaptive */
-navburg {
+nav {
   margin: 1em auto;
   z-index: 1;
   display: none;
@@ -107,7 +110,7 @@ navburg {
   navtop {
     display: none;
   }
-  & navburg {
+  & nav {
     display: block;
     position: fixed;
     top: 0;

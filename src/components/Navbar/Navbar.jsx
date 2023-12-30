@@ -46,49 +46,64 @@ const Navbar = () => {
 
   return (
     <>
-      <navburg>
-      <div className="nav_logo">
-          <img className="nav_logo__villa" src={img1} alt="" onClick={()=>navigate("/about")}/>
-        </div>
-      <div className="nav_burger">
-        {user === ADMIN ? (
+      <nav>
+        <div className="nav_logo">
           <img
-            className="nav_right__bottle"
-            src={img6}
-            alt="error"
-            onClick={() => navigate("/admin")}
+            className="nav_logo__villa"
+            src={img1}
+            alt=""
+            onClick={() => navigate("/about")}
           />
-        ) : (
-          <></>
-        )}
+        </div>
+        <div className="nav_burger">
+          {user === ADMIN ? (
+            <img
+              className="nav_right__bottle"
+              src={img6}
+              alt="error"
+              onClick={() => navigate("/admin")}
+            />
+          ) : (
+            <></>
+          )}
           <ul className="nav_burgerList">
-            <li className="nav_burgerList_item" onClick={() => navigate("/menu")}>MENU</li>
-            <li className="nav_burgerList_item" onClick={() => navigate("/shop")}>SHOP</li>
-              {user ? (
-                <li
-                  className="nav_burgerList_item"
-                  onClick={() => {
-                    dispatch(handleLogout(navigate));
-                    dispatch(clearInputs());
-                  }}
-                >
-                  LOG OUT
-                </li>
-                ) : (
-                  <li
-                    className="nav_burgerList_item"
-                    onClick={() => {
-                      navigate("/login");
-                      dispatch(clearInputs());
-                    }}
-                  >
-                    LOG IN
-                  </li>
-              )}
+            <li
+              className="nav_burgerList_item"
+              onClick={() => navigate("/menu")}
+            >
+              MENU
+            </li>
+            <li
+              className="nav_burgerList_item"
+              onClick={() => navigate("/shop")}
+            >
+              SHOP
+            </li>
+            {user ? (
+              <li
+                className="nav_burgerList_item"
+                onClick={() => {
+                  dispatch(handleLogout(navigate));
+                  dispatch(clearInputs());
+                }}
+              >
+                LOG OUT
+              </li>
+            ) : (
+              <li
+                className="nav_burgerList_item"
+                onClick={() => {
+                  navigate("/login");
+                  dispatch(clearInputs());
+                }}
+              >
+                LOG IN
+              </li>
+            )}
           </ul>
         </div>
-      </navburg>
-      <navtop className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
+      </nav>
+      <div className={`navbar ${isNavbarVisible ? "show" : "hide"}`}>
         <div className="nav_left__side">
           <img
             className="nav_left__glass"
@@ -114,10 +129,14 @@ const Navbar = () => {
           )}
         </div>
         <div className="nav_logo">
-          <img className="nav_logo__villa" src={img1} alt="" onClick={()=>navigate("/about")}/>
+          <img
+            className="nav_logo__villa"
+            src={img1}
+            alt=""
+            onClick={() => navigate("/about")}
+          />
         </div>
         <div className="nav_right__side">
-         
           {user ? (
             <button
               className="nav_right__btn"
@@ -136,15 +155,14 @@ const Navbar = () => {
                 dispatch(clearInputs());
               }}
             >
-              <img className="nav_right_img" src={img4} alt="" />
+              <img className="nav_right_img" src={img4} alt="error" />
             </button>
           )}
-          <button className="nav_right__btn" id="btn__nav">
-            {/* <img className="nav_right_img" src={img5} alt="" /> */}
+          <div className="nav_right__btn" id="btn__nav">
             <Cart />
-          </button>
+          </div>
         </div>
-      </navtop>
+      </div>
     </>
   );
 };
