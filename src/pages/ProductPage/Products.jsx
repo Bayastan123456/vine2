@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../../components/Product/ProductCard/ProductCard";
 import ProductCard from "../../components/Product/ProductCard/ProductCard";
 import { useSelector } from "react-redux";
-import { current } from "@reduxjs/toolkit";
 import { Box, Pagination } from "@mui/material";
 
 const Products = () => {

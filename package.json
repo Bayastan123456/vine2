@@ -2,7 +2,7 @@
   "name": "fullstack",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Bayastan123456/wine",
+  "homepage": "https://Bayastan123456.github.io/wine",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -24,6 +24,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
     "styled-components": "^5.3.11",
+    "vercel": "^33.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build  && gh-pages -d dist"
+    "deploy": "npm run build  && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

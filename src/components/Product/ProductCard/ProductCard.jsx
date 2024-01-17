@@ -11,7 +11,7 @@ const ProductCard = ({ currentData }) => {
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="product_cards_container">
