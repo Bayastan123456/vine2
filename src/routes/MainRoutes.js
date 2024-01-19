@@ -78,9 +78,9 @@ const MainRoutes = () => {
   ];
 
   return (
-    <Routes>
+    <Routes  basename={process.env.PUBLIC_URL} >
       {PUBLIC_ROUTES.map((item) => (
-        <Route path={item.link} element={item.element} key={item.id} />
+        <Route path={item.link} element={item.element} key={item.id}  />
       ))}
       {user &&
         PRIVATE__ROUTES.map((item) => (
