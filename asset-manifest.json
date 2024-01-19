@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vine2/static/css/main.8688cefe.css",
-    "main.js": "/vine2/static/js/main.9fcde082.js",
+    "main.js": "/vine2/static/js/main.780c481b.js",
     "static/media/Diamant-2018-300.png": "/vine2/static/media/Diamant-2018-300.23c950690c85d25b2570.png",
     "static/media/13.png": "/vine2/static/media/13.a558c7a41c8ec608120f.png",
     "static/media/14.png": "/vine2/static/media/14.d7f1f93edb3771f52d74.png",
@@ -20,10 +20,10 @@
     "index.html": "/vine2/index.html",
     "static/media/delete_FILL0_wght400_GRAD0_opsz48.svg": "/vine2/static/media/delete_FILL0_wght400_GRAD0_opsz48.05eba52e3ac906f48d6c5f729b4d6a56.svg",
     "main.8688cefe.css.map": "/vine2/static/css/main.8688cefe.css.map",
-    "main.9fcde082.js.map": "/vine2/static/js/main.9fcde082.js.map"
+    "main.780c481b.js.map": "/vine2/static/js/main.780c481b.js.map"
   },
   "entrypoints": [
     "static/css/main.8688cefe.css",
-    "static/js/main.9fcde082.js"
+    "static/js/main.780c481b.js"
   ]
 }
