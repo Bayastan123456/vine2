@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/vine2/static/css/main.8688cefe.css",
+    "main.js": "/vine2/static/js/main.7bc93cf4.js",
+    "static/media/Diamant-2018-300.png": "/vine2/static/media/Diamant-2018-300.23c950690c85d25b2570.png",
+    "static/media/13.png": "/vine2/static/media/13.a558c7a41c8ec608120f.png",
+    "static/media/14.png": "/vine2/static/media/14.d7f1f93edb3771f52d74.png",
+    "static/media/imageLogo.png": "/vine2/static/media/imageLogo.52001bf7cf75a9e367e0.png",
+    "static/media/3.png": "/vine2/static/media/3.96c437a5af0b8e2b5cdc.png",
+    "static/media/9.png": "/vine2/static/media/9.a0151d1e117e548fa804.png",
+    "static/media/6.png": "/vine2/static/media/6.47d91a29ba64e0b0847f.png",
+    "static/media/11.png": "/vine2/static/media/11.8a7bb099f0e183010b1c.png",
+    "static/media/2.png": "/vine2/static/media/2.8a7bb099f0e183010b1c.png",
+    "static/media/8.png": "/vine2/static/media/8.a5146ccd449ca78d5e62.png",
+    "static/media/15.png": "/vine2/static/media/15.846d996a265c706be6d3.png",
+    "static/media/17.png": "/vine2/static/media/17.beac95021ff7aebacb91.png",
+    "static/media/7.png": "/vine2/static/media/7.ee533e7bc21a1a0478e0.png",
+    "static/media/16.png": "/vine2/static/media/16.a588d999045f568a8fa2.png",
+    "static/media/shield_person_FILL1_wght400_GRAD0_opsz48.svg": "/vine2/static/media/shield_person_FILL1_wght400_GRAD0_opsz48.c80e9942e3e8ce7f00d693e83ac94c22.svg",
+    "index.html": "/vine2/index.html",
+    "static/media/delete_FILL0_wght400_GRAD0_opsz48.svg": "/vine2/static/media/delete_FILL0_wght400_GRAD0_opsz48.05eba52e3ac906f48d6c5f729b4d6a56.svg",
+    "main.8688cefe.css.map": "/vine2/static/css/main.8688cefe.css.map",
+    "main.7bc93cf4.js.map": "/vine2/static/js/main.7bc93cf4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8688cefe.css",
+    "static/js/main.7bc93cf4.js"
+  ]
+}
