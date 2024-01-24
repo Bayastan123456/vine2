@@ -7,6 +7,7 @@ const ProductComments = ({ productId }) => {
   const comments = useSelector((state) => state.comments[productId] || []);
   const dispatch = useDispatch();
 
+  console.log(comments);
   return (
     <div className="productComment__Box">
       <h3 className="productCommentsTitel">Comments for Product {productId}</h3>

@@ -2,12 +2,9 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./MainScreenInlineItem.css";
 import img from "../../../images/Diamant-2018-300.png";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getProducts,
-  addProduct,
-  getOneProduct,
-} from "../../../store/products/productAction";
+import { getProducts } from "../../../store/products/productAction";
 import { useNavigate } from "react-router";
+import Loaders from "../../Loaders/Loaders";
 
 const MainScreenInlineItem = () => {
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -18,6 +15,7 @@ const MainScreenInlineItem = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeLink, setActiveLink] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
@@ -117,159 +115,186 @@ const MainScreenInlineItem = () => {
 
   const ulKey = "list"; // Ключ списка <ul>, чтобы гарантировать его уникальность
 
+  //Загруска
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dispatch(getProducts());
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [products]);
+
   return (
-    <div
-      onMouseDown={(event) => {
-        setIsMouseDown(true);
-        setStartX(event.pageX);
-        setStartY(event.pageY);
-      }}
-      onDoubleClick={handleDoubleClick}
-      onMouseMove={(event) => {
-        if (isDragging) {
-          const currentX = event.pageX;
-          const currentY = event.pageY;
+    <div>
+      {isLoading ? (
+        <Loaders />
+      ) : (
+        <div
+          onMouseDown={(event) => {
+            setIsMouseDown(true);
+            setStartX(event.pageX);
+            setStartY(event.pageY);
+          }}
+          onDoubleClick={handleDoubleClick}
+          onMouseMove={(event) => {
+            if (isDragging) {
+              const currentX = event.pageX;
+              const currentY = event.pageY;
 
-          const deltaX = startX - currentX;
-          const deltaY = startY - currentY;
+              const deltaX = startX - currentX;
+              const deltaY = startY - currentY;
 
-          setScrollX((prevScrollX) => prevScrollX + deltaX);
-          setScrollY((prevScrollY) => prevScrollY + deltaY);
+              setScrollX((prevScrollX) => prevScrollX + deltaX);
+              setScrollY((prevScrollY) => prevScrollY + deltaY);
 
-          setStartX(currentX);
-          setStartY(currentY);
-        }
-      }}
-      onMouseUp={() => {
-        setIsMouseDown(false);
-        setIsDragging(false);
-      }}
-      onMouseLeave={() => {
-        setIsMouseDown(false);
-        setIsDragging(false);
-      }}
-    >
-      <div
-        className="itemScreen"
-        style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
-      >
-        <div style={{ display: "flex" }}>
-          {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
-            <ul
-              key={`${ulKey}-${rowIndex}`}
-              className={`${ulKey} itemListProduct`}
-              style={{
-                width: `calc(100% / ${ulsPerRow})`,
-                height: `calc(100% / ${Math.ceil(totalUlCount / ulsPerRow)})`,
-              }}
-              onMouseDown={handleUlMouseDown}
-              onMouseMove={handleUlMouseMove}
-              onMouseUp={handleUlMouseUp}
-              onMouseLeave={handleUlMouseLeave}
-            >
-              {arr.map((id, liIndex) => {
-                const product = products.find((item) => item.id === id);
-                if (product) {
-                  const liKey = `li-${ulKey}-${liIndex}`;
+              setStartX(currentX);
+              setStartY(currentY);
+            }
+          }}
+          onMouseUp={() => {
+            setIsMouseDown(false);
+            setIsDragging(false);
+          }}
+          onMouseLeave={() => {
+            setIsMouseDown(false);
+            setIsDragging(false);
+          }}
+        >
+          <div
+            className="itemScreen"
+            style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
+          >
+            <div style={{ display: "flex" }}>
+              {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
+                <ul
+                  key={`${ulKey}-${rowIndex}`}
+                  className={`${ulKey} itemListProduct`}
+                  style={{
+                    width: `calc(100% / ${ulsPerRow})`,
+                    height: `calc(100% / ${Math.ceil(
+                      totalUlCount / ulsPerRow
+                    )})`,
+                  }}
+                  onMouseDown={handleUlMouseDown}
+                  onMouseMove={handleUlMouseMove}
+                  onMouseUp={handleUlMouseUp}
+                  onMouseLeave={handleUlMouseLeave}
+                >
+                  {arr.map((id, liIndex) => {
+                    const product = products.find((item) => item.id === id);
+                    if (product) {
+                      const liKey = `li-${ulKey}-${liIndex}`;
 
-                  return (
-                    <li
-                      key={liKey}
-                      className={`list-${ulKey}-item itemProduct ${
-                        liIndex === activeIndex ? "active" : ""
-                      }`}
-                      onClick={() => handleLiClick(liIndex)}
-                    >
-                      <div className="imgBlock">
-                        <img
-                          src={product.image}
-                          alt="product"
-                          width="30%"
-                          height="80%"
-                        />
-                        <span>{product.name}</span>
+                      return (
+                        <li
+                          key={liKey}
+                          className={`list-${ulKey}-item itemProduct ${
+                            liIndex === activeIndex ? "active" : ""
+                          }`}
+                          onClick={() => handleLiClick(liIndex)}
+                        >
+                          <div className="imgBlock">
+                            <img
+                              src={product.image}
+                              alt="product"
+                              width="30%"
+                              height="80%"
+                            />
+                            <span>{product.name}</span>
 
-                        {liIndex === activeIndex && (
-                          <a
-                            onClick={() => navigate(`/details/${product?.id}`)}
-                            className="getDeteilsProduct"
+                            {liIndex === activeIndex && (
+                              <a
+                                onClick={() =>
+                                  navigate(`/details/${product?.id}`)
+                                }
+                                className="getDeteilsProduct"
+                              >
+                                Get Details
+                              </a>
+                            )}
+                          </div>
+                        </li>
+                      );
+                    }
+                    return null;
+                  })}
+                </ul>
+              ))}
+            </div>
+          </div>
+          <div
+            className="itemScreen"
+            style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
+          >
+            <div style={{ display: "flex", marginLeft: "210px" }}>
+              {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
+                <ul
+                  key={`${ulKey}-${rowIndex}`}
+                  className={`${ulKey} itemListProduct`}
+                  style={{
+                    width: `calc(100% / ${ulsPerRow})`,
+                    height: `calc(100% / ${Math.ceil(
+                      totalUlCount / ulsPerRow
+                    )})`,
+                  }}
+                  onMouseDown={handleUlMouseDown}
+                  onMouseMove={handleUlMouseMove}
+                  onMouseUp={handleUlMouseUp}
+                  onMouseLeave={handleUlMouseLeave}
+                >
+                  {arr
+                    .slice()
+                    .reverse()
+                    .map((id, liIndex) => {
+                      const product = products.find((item) => item.id === id);
+                      if (product) {
+                        const liKey = `li-${ulKey}-${liIndex}`;
+
+                        return (
+                          <li
+                            key={liKey}
+                            className={`list-${ulKey}-item itemProduct ${
+                              liIndex === activeIndex ? "active" : ""
+                            }`}
+                            onClick={() => handleLiClick(liIndex)}
                           >
-                            Get Details
-                          </a>
-                        )}
-                      </div>
-                    </li>
-                  );
-                }
-                return null;
-              })}
-            </ul>
-          ))}
-        </div>
-      </div>
-      <div
-        className="itemScreen"
-        style={{ transform: `translate(${scrollX}px, ${scrollY}px)` }}
-      >
-        <div style={{ display: "flex", marginLeft: "210px" }}>
-          {Array.from({ length: ulsPerRow }).map((_, rowIndex) => (
-            <ul
-              key={`${ulKey}-${rowIndex}`}
-              className={`${ulKey} itemListProduct`}
-              style={{
-                width: `calc(100% / ${ulsPerRow})`,
-                height: `calc(100% / ${Math.ceil(totalUlCount / ulsPerRow)})`,
-              }}
-              onMouseDown={handleUlMouseDown}
-              onMouseMove={handleUlMouseMove}
-              onMouseUp={handleUlMouseUp}
-              onMouseLeave={handleUlMouseLeave}
-            >
-              {arr
-                .slice()
-                .reverse()
-                .map((id, liIndex) => {
-                  const product = products.find((item) => item.id === id);
-                  if (product) {
-                    const liKey = `li-${ulKey}-${liIndex}`;
+                            <div className="imgBlock">
+                              <img
+                                src={product.image}
+                                alt="product"
+                                width="30%"
+                                height="80%"
+                              />
+                              <span>{product.name}</span>
 
-                    return (
-                      <li
-                        key={liKey}
-                        className={`list-${ulKey}-item itemProduct ${
-                          liIndex === activeIndex ? "active" : ""
-                        }`}
-                        onClick={() => handleLiClick(liIndex)}
-                      >
-                        <div className="imgBlock">
-                          <img
-                            src={product.image}
-                            alt="product"
-                            width="30%"
-                            height="80%"
-                          />
-                          <span>{product.name}</span>
-
-                          {liIndex === activeIndex && (
-                            <a
-                              onClick={() =>
-                                navigate(`/details/${product?.id}`)
-                              }
-                              className="getDeteilsProduct"
-                            >
-                              Get Details
-                            </a>
-                          )}
-                        </div>
-                      </li>
-                    );
-                  }
-                  return null;
-                })}
-            </ul>
-          ))}
+                              {liIndex === activeIndex && (
+                                <a
+                                  onClick={() =>
+                                    navigate(`/details/${product?.id}`)
+                                  }
+                                  className="getDeteilsProduct"
+                                >
+                                  Get Details
+                                </a>
+                              )}
+                            </div>
+                          </li>
+                        );
+                      }
+                      return null;
+                    })}
+                </ul>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
