@@ -61,6 +61,33 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .sidebar__main {
+     width: 100% !important; /* Force full width when open */
+     padding-top: 60px;
+  }
+  
+  .box__cart {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box__cart > img {
+     width: 100px;
+  }
+  
+  .cart__title {
+     align-items: center;
+     text-align: center;
+     height: auto;
+     margin: 10px 0;
+  }
+  
+  .total__box {
+    width: 100%;
+  }
+}
+
 .box__cart {
   display: flex;
   justify-content: space-between;

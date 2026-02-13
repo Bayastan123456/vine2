@@ -13,6 +13,7 @@ import EditProduct from "../components/Product/EditProduct/EditProduct";
 import Menu from "../components/Menu/Menu";
 import ShopMainScreen from "../components/Product/ShopMainScreen/ShopMainScreen";
 import AboutUs from "../components/AboutUs/AboutUs";
+import GenericPage from "../pages/GenericPage/GenericPage";
 
 const MainRoutes = () => {
   const { user } = useSelector((state) => state.auth);
@@ -67,6 +68,20 @@ const MainRoutes = () => {
       element: <AboutUs />,
       id: 10,
     },
+    // The Village
+    { link: "/winery", element: <GenericPage />, id: 11 },
+    { link: "/vineyards", element: <GenericPage />, id: 12 },
+    { link: "/villa-gradoni", element: <GenericPage />, id: 13 },
+    { link: "/ela-restaurant", element: <GenericPage />, id: 14 },
+    // Differently Villa
+    { link: "/history", element: <GenericPage />, id: 15 },
+    { link: "/values", element: <GenericPage />, id: 16 },
+    { link: "/philosophy", element: <GenericPage />, id: 17 },
+    { link: "/research", element: <GenericPage />, id: 18 },
+    { link: "/family", element: <GenericPage />, id: 19 },
+    // Franciacorta
+    { link: "/territory", element: <GenericPage />, id: 20 },
+    { link: "/method", element: <GenericPage />, id: 21 },
   ];
 
   const PRIVATE__ROUTES = [
@@ -78,7 +93,7 @@ const MainRoutes = () => {
   ];
 
   return (
-    <Routes  basename={process.env.PUBLIC_URL} >
+    <Routes>
       {PUBLIC_ROUTES.map((item) => (
         <Route path={item.link} element={item.element} key={item.id}  />
       ))}

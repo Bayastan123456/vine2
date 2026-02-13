@@ -165,3 +165,44 @@
   width: 100%;
   display: none;
 }
+@media screen and (max-width: 768px) {
+  .menu_menu {
+    flex-direction: column;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .menu_menu_left, .menu_menu_right {
+    position: static;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu_menu_central {
+    position: static;
+    order: -1; /* Move close button to top */
+    margin: 0 auto 20px;
+    display: block; 
+    height: auto;
+  }
+  
+  .menu_menu_central > button {
+    position: static;
+    margin-bottom: 20px;
+  }
+  
+  .central_border_up, .central_border_down, .armcrest {
+    display: none; /* Hide decorative elements on mobile */
+  }
+
+  .menu_menuOptions, .menu_menu_rightOptions {
+    transform: none; /* Remove 3D transform */
+    font-size: 1.5rem;
+  }
+  
+  .slide_wrapper {
+      margin: 10px auto;
+  }
+}

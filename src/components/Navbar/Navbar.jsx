@@ -4,7 +4,6 @@ import img1 from "./image/imageLogo.png";
 import img2 from "./image/14.png";
 import img3 from "./image/17.png";
 import img4 from "./image/16.png";
-import img5 from "./image/15.png";
 import img6 from "./image/shield_person_FILL1_wght400_GRAD0_opsz48.svg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,14 +19,14 @@ const Navbar = () => {
 
   useEffect(() => {
     dispatch(authListener());
-  }, []);
+  }, [dispatch]);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const visibleOffset = 100; // Определите необходимое смещение для скрытия/появления навбара
+      // const visibleOffset = 100; // Определите необходимое смещение для скрытия/появления навбара
 
       if (prevScrollPos > currentScrollPos) {
         setIsNavbarVisible(true);

@@ -89,8 +89,6 @@
 .box2__detail-Left > h4 {
   display: flex;
   justify-content: first baseline;
-  /* display: inline; */
-
   align-items: center;
 }
 
@@ -142,7 +140,7 @@
   width: 50%;
   display: flex;
   justify-content: space-around;
-  align-items: start;
+  align-items: flex-start;
 }
 .btn {
   width: 180px;
@@ -271,8 +269,27 @@
 @media screen and (max-width: 478px) {
   .box2__detail {
     margin: 0 20px;
+    height: auto;
+    flex-direction: column;
   }
   .box1__detail {
     background-size: cover;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .details__box-title {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .glav2__detail {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .btn__containerGlav {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }

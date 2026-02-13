@@ -27,10 +27,9 @@ const Cart = () => {
       );
       cart = { products: [], totalPrice: 0 };
     }
-    console.log(cart.totalPrice);
     // cart.totalprice = calcTotalPrice(products);
     dispatch(getCart(cart));
-  }, []);
+  }, [dispatch]);
 
   const changeProductCount = (count, id) => {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -57,9 +56,9 @@ const Cart = () => {
   return (
     <div>
       <div id="mySidebar" className="sidebar__main">
-        <a className="closebtn" onClick={() => closeNav()}>
+        <button className="closebtn" onClick={() => closeNav()}>
           ×
-        </a>
+        </button>
         <div className="sidebar_box">
           {products?.map((elem) => (
             <div className="box__cart" key={elem.item.id}>

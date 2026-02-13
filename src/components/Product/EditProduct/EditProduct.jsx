@@ -30,7 +30,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     dispatch(getOneProduct(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     setName(oneProduct.name);

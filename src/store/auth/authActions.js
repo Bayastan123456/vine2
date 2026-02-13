@@ -27,9 +27,11 @@ export const handleSignUp = createAsyncThunk(
           case "auth/weak-password":
             dispatch(setPasswordError(err.message));
             break;
+          default:
+            break;
         }
       });
-  }
+  },
 );
 
 export const handleLogin = createAsyncThunk(
@@ -52,9 +54,11 @@ export const handleLogin = createAsyncThunk(
           case "auth/wrong-password":
             dispatch(setPasswordError(err.message));
             break;
+          default:
+            break;
         }
       });
-  }
+  },
 );
 
 export const authListener = createAsyncThunk(
@@ -68,7 +72,7 @@ export const authListener = createAsyncThunk(
         dispatch(setUser(""));
       }
     });
-  }
+  },
 );
 
 export const handleLogout = createAsyncThunk(
@@ -76,7 +80,7 @@ export const handleLogout = createAsyncThunk(
   async (navigate) => {
     await fire.auth().signOut();
     navigate("/login");
-  }
+  },
 );
 
 // export const handlePasswordReset = (email) => {

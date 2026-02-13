@@ -132,3 +132,26 @@
 h2 {
   margin-top: 5%;
 }
+@media screen and (max-width: 768px) {
+  .admin__container {
+    height: auto;
+    padding: 20px 0;
+  }
+  
+  .admin__input {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .right__boxAdmin {
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .input__admin {
+    width: 100%;
+    max-width: none;
+  }
+}

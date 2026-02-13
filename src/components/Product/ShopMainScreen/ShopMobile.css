@@ -1,0 +1,68 @@
+.shopMobile_container {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+.shopMobile_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shopMobile_item {
+    background: darkred;
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.shopMobile_imgBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shopMobile_imgBlock img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.shopMobile_imgBlock span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.shopMobile_detailsBtn {
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.shopMobile_detailsBtn:hover {
+    background-color: #333;
+    color: white;
+}

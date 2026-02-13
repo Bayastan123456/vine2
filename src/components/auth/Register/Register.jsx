@@ -9,7 +9,6 @@ const Register = () => {
   const { email, password, emailError, passwordError } = useSelector(
     (state) => state.auth
   );
-  console.log(emailError);
   const [showError, setShowError] = useState(false);
 
   const dispatch = useDispatch();

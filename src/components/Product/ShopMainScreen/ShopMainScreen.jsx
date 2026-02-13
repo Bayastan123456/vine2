@@ -1,10 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import MainScreenInlineItem from "../MainScreenInlineItem/MainScreenInlineItem";
+import ShopMobile from "./ShopMobile";
 import "./ShopMainScreen.css";
 
 const ShopMainScreen = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
+      // Disable custom scroll logic for mobile devices
+      if (isMobile) return;
+
       const docWidth = document.documentElement.clientWidth * 5;
       const docHeight = document.documentElement.clientHeight * 3;
 
@@ -30,7 +45,11 @@ const ShopMainScreen = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) {
+    return <ShopMobile />;
+  }
 
   return (
     <div className="allItem">

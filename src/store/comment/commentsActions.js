@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API_COMENTS } from "../../const";
+import { API_COMMENTS } from "../../const";
 
 export const getComments = createAsyncThunk(
   "@comments/getComments",
   async () => {
-    let { data } = await axios(API_COMENTS);
+    let { data } = await axios(API_COMMENTS);
     return data;
   }
 );
@@ -13,7 +13,7 @@ export const getComments = createAsyncThunk(
 export const addComments = createAsyncThunk(
   "@comments/addComments",
   async (obj, { dispatch }) => {
-    await axios.post(API_COMENTS, obj);
+    await axios.post(API_COMMENTS, obj);
 
     dispatch(getComments());
     return obj;

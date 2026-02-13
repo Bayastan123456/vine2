@@ -16,18 +16,22 @@ const Menu = () => {
         {
           category: "WINNERY",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/cantina-1.jpg",
+          link: "/winery",
         },
         {
           category: "VINEYARDS",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/vigneti.jpg",
+          link: "/vineyards",
         },
         {
           category: "VILLA GRADONI",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/villagradoni.jpg",
+          link: "/villa-gradoni",
         },
         {
           category: "ELA RESTRAUNT",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/ristorante.jpeg",
+          link: "/ela-restaurant",
         },
       ],
     },
@@ -38,22 +42,27 @@ const Menu = () => {
         {
           category: "HISTORY",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/04/storia.jpg",
+          link: "/history",
         },
         {
           category: "VALUES",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/05/valori.jpg",
+          link: "/values",
         },
         {
           category: "PHILOSOPHY",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/filosofia.jpg",
+          link: "/philosophy",
         },
         {
           category: "RESEARCH",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/05/ricerca-2.jpg",
+          link: "/research",
         },
         {
           category: "FAMILY",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/famiglia.jpg",
+          link: "/family",
         },
       ],
     },
@@ -64,10 +73,12 @@ const Menu = () => {
         {
           category: "TERRITORY",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/territorio.jpg",
+          link: "/territory",
         },
         {
           category: "METHOD",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/metodo.jpg",
+          link: "/method",
         },
       ],
     },
@@ -79,21 +90,25 @@ const Menu = () => {
           category: "ALL PRODUCTS",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/tutti-1.jpg",
           link: "/product",
+          filter: "all",
         },
         {
           category: "FRANCIACORTA",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/franciacorta.jpg",
           link: "/product",
+          filter: "Franciacorta",
         },
         {
           category: "WINES",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/vini-1.jpg",
           link: "/product",
+          filter: "Wines",
         },
         {
           category: "GRAPPE",
           img: "https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2023/03/grappe-1.jpg",
           link: "/product",
+          filter: "Grappe",
         },
       ],
     },
@@ -113,7 +128,15 @@ const Menu = () => {
                   style={{ listStyle: "none" }}
                   className="menu_menu_rightOptionsList"
                   onMouseOver={() => setImgUrl(elem.img)}
-                  onClick={() => navigate(elem.link)}
+                  onClick={() =>
+                    navigate(elem.link, {
+                      state: {
+                        title: elem.category,
+                        img: elem.img,
+                        filter: elem.filter,
+                      },
+                    })
+                  }
                 >
                   <div className="slide_wrapper">
                     <div className="relative">
@@ -124,7 +147,7 @@ const Menu = () => {
                     </div>
                   </div>
                   <div className="right_menuImg">
-                    <img src={imgUrl} />
+                    <img src={imgUrl} alt={elem.category} />
                   </div>
                 </li>
               ))}

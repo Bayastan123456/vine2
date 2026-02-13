@@ -50,7 +50,7 @@
 .honeycomb div {
   -webkit-animation: honeycomb 2.1s infinite backwards;
   animation: honeycomb 2.1s infinite backwards;
-  background: #f3f3f3;
+  background: #c5a059;
   height: 12px;
   margin-top: 6px;
   position: absolute;
@@ -69,12 +69,12 @@
 
 .honeycomb div:after {
   top: -6px;
-  border-bottom: 6px solid #f3f3f3;
+  border-bottom: 6px solid #c5a059;
 }
 
 .honeycomb div:before {
   bottom: -6px;
-  border-top: 6px solid #f3f3f3;
+  border-top: 6px solid #c5a059;
 }
 
 .honeycomb div:nth-child(1) {
