@@ -1,0 +1,133 @@
+.footer {
+  background-color: #0b0b0b;
+  color: #fff;
+  padding: 60px 0 20px;
+  font-family: "Nanum Myeongjo", serif;
+  width: 100%;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer_section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer_brand h2 {
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.footer_brand p {
+  color: #c5a059;
+  font-family: "Pathway Gothic One", sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.footer_title {
+  color: #c5a059;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer_links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer_links li {
+  margin-bottom: 10px;
+}
+
+.footer_links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: "Pathway Gothic One", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.footer_links a:hover {
+  color: #c5a059;
+}
+
+.footer_contact p {
+  color: #aaa;
+  margin-bottom: 10px;
+  font-family: "Pathway Gothic One", sans-serif;
+}
+
+.footer_input_group {
+  display: flex;
+  border-bottom: 1px solid #c5a059;
+  padding-bottom: 5px;
+  max-width: 300px;
+}
+
+.footer_input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  flex: 1;
+  padding: 10px 0;
+  outline: none;
+  font-family: "Pathway Gothic One", sans-serif;
+}
+
+.footer_input::placeholder {
+  color: #555;
+}
+
+.footer_btn {
+  background: transparent;
+  border: none;
+  color: #c5a059;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.footer_btn:hover {
+  color: #fff;
+}
+
+.footer_bottom {
+  border-top: 1px solid #222;
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  color: #555;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .footer_container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer_section {
+    margin-bottom: 40px;
+  }
+
+  .footer_input_group {
+    margin: 0 auto;
+  }
+}

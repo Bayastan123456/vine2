@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import "./MainScreenInlineItem.css";
-import img from "../../../images/Diamant-2018-300.png";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../store/products/productAction";
 import { useNavigate } from "react-router";
@@ -14,7 +13,6 @@ const MainScreenInlineItem = () => {
   const [scrollX, setScrollX] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
-  const [activeLink, setActiveLink] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const products = useSelector((state) => state.products.products);
@@ -46,9 +44,7 @@ const MainScreenInlineItem = () => {
       }
     };
 
-    const active = document.querySelector(".active");
-
-    active ? setActiveLink(true) : setActiveLink(false);
+    // const active = document.querySelector(".active");
 
     document.addEventListener("mousemove", handleMouseMove);
 
@@ -128,7 +124,7 @@ const MainScreenInlineItem = () => {
     };
 
     fetchData();
-  }, [products]);
+  }, [products, dispatch]);
 
   return (
     <div>
@@ -209,14 +205,15 @@ const MainScreenInlineItem = () => {
                             <span>{product.name}</span>
 
                             {liIndex === activeIndex && (
-                              <a
+                              <p
+                                style={{ cursor: "pointer" }}
                                 onClick={() =>
                                   navigate(`/details/${product?.id}`)
                                 }
                                 className="getDeteilsProduct"
                               >
                                 Get Details
-                              </a>
+                              </p>
                             )}
                           </div>
                         </li>
@@ -274,14 +271,15 @@ const MainScreenInlineItem = () => {
                               <span>{product.name}</span>
 
                               {liIndex === activeIndex && (
-                                <a
+                                <p
+                                  style={{ cursor: "pointer" }}
                                   onClick={() =>
                                     navigate(`/details/${product?.id}`)
                                   }
                                   className="getDeteilsProduct"
                                 >
                                   Get Details
-                                </a>
+                                </p>
                               )}
                             </div>
                           </li>

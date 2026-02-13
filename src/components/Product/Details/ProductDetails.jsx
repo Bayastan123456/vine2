@@ -34,7 +34,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     dispatch(getOneProduct(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +65,7 @@ const ProductDetails = () => {
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch(getCart(cart));
-  }, []);
+  }, [dispatch]);
 
   function addToCart(product) {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -80,12 +80,11 @@ const ProductDetails = () => {
       count: 1,
       subPrice: +product.price,
     };
-    console.log(obj);
     let productInCart = cart.products.filter(
       (elem) => elem.item.id === product.id
     );
 
-    if (productInCart.length == 0) {
+    if (productInCart.length === 0) {
       cart.products.push(obj);
     } else {
       cart.products = cart.products.filter(

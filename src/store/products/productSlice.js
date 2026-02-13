@@ -4,6 +4,7 @@ import { addProduct, getOneProduct, getProducts } from "./productAction";
 const initialState = {
   products: [],
   oneProduct: {},
+  loading: false,
 };
 
 export const productSlice = createSlice({
@@ -13,8 +14,15 @@ export const productSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
+      .addCase(getProducts.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(getProducts.fulfilled, (state, action) => {
+        state.loading = false;
         state.products = action.payload;
+      })
+      .addCase(getProducts.rejected, (state) => {
+        state.loading = false;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.products.push(action.payload);

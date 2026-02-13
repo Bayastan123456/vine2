@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
 import "../../components/Product/ProductCard/ProductCard";
 import ProductCard from "../../components/Product/ProductCard/ProductCard";
-import { useSelector } from "react-redux";
-import { Box, Pagination } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from "../../store/products/productAction";
+import { useLocation } from "react-router-dom";
+import Loaders from "../../components/Loaders/Loaders";
 
 const Products = () => {
   const [search, setSearch] = useState("");
-  const { products } = useSelector((state) => state.products);
+  const { products, loading } = useSelector((state) => state.products);
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("all");
+  const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   useEffect(() => {
     // const vremennaya = products;
     setData(products);
   }, [products]);
+
+  useEffect(() => {
+    if (location.state && location.state.filter) {
+      setFilter(location.state.filter);
+    }
+  }, [location.state]);
 
   const handleFilter = (sort) => {
     setFilter(sort);
@@ -20,24 +35,17 @@ const Products = () => {
 
   const filteredData =
     filter === "all" ? data : data.filter((item) => item.sort === filter);
-  console.log(filteredData);
   const searchProduct = filteredData.filter((product) => {
     return product.name.toLowerCase().includes(search.toLowerCase());
   });
 
-  const [page, setPage] = useState(1);
-  const itemPage = 3;
-  const count = Math.ceil(searchProduct.length / itemPage);
-
   function currentData() {
-    const begin = (page - 1) * itemPage;
-    const end = begin + itemPage;
-    return searchProduct.slice(begin, end);
+    return searchProduct;
   }
 
-  const handleChange = (_, page) => {
-    setPage(page);
-  };
+  if (loading) {
+    return <Loaders />;
+  }
 
   return (
     <>
@@ -96,32 +104,6 @@ const Products = () => {
           <ProductCard currentData={currentData} />
         </div>
       </div>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          margin: "0 auto 2%",
-          background: "none",
-          width: "100%",
-          marginTop: "100vh",
-          color: "white",
-        }}
-      >
-        <Box
-          sx={{
-            width: "fit-content",
-            borderRadius: "20px",
-            background: "rgba(255, 255, 255, 0.5)",
-          }}
-        >
-          <Pagination
-            color="primary"
-            count={count}
-            page={page}
-            onChange={handleChange}
-          />
-        </Box>
-      </Box>
     </>
   );
 };

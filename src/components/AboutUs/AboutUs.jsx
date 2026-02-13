@@ -13,7 +13,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/Avanti.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/Avanti.jpg" alt="Villa Franciacorta"/>
                         </div>
                         <h3>Villa Franciacorta, the courage of Unique Emotion</h3>
                     </div>
@@ -24,7 +24,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/Franciacorta-1.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/Franciacorta-1.jpg" alt="Franciacorta"/>
                         </div>
                         <h3>The “Emotions” of Villa Franciacorta</h3>
                     </div>
@@ -35,7 +35,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/11/visita-1.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/11/visita-1.jpg" alt="Visit"/>
                         </div>
                         <h3>VILLA FRANCIACORTA, THE PERFECTION OF NEW VINTAGES</h3>
                     </div>
@@ -46,7 +46,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/cambiamenti-climatici.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/cambiamenti-climatici.jpg" alt="Climate Change"/>
                         </div>
                         <h3>Villa Franciacorta, excellent new vintages 2018. Don’t miss “Unique Emotion 2017”</h3>
                     </div>
@@ -57,7 +57,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/news-1.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/news-1.jpg" alt="News 1"/>
                         </div>
                         <h3>Villa Franciacorta unveils new vintage</h3>
                     </div>
@@ -68,7 +68,7 @@ const AboutUs = () => {
                     <div className="aboutUs_line">
                         <div className="aboutUs_bg"></div>
                         <div className='aboutUs_lineImg'>
-                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/news-2.jpg"/>
+                        <img src="https://www.villafranciacorta.it/ecommerce/wp-content/uploads/2022/12/news-2.jpg" alt="News 2"/>
                         </div>
                         <h3>Villa Franciacorta wines continue growth in the world</h3>
                     </div>

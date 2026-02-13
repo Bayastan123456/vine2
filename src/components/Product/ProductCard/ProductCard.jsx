@@ -1,29 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./ProductCard.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../../store/products/productAction";
 import { useNavigate } from "react-router-dom";
-import Loaders from "../../Loaders/Loaders";
 
 const ProductCard = ({ currentData }) => {
-  const { products } = useSelector((state) => state.products);
-
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
-  
-
   return (
     <div className="product_cards_container">
-      {products ? (
+      {currentData() && currentData().length > 0 ? (
         currentData().map((item) => (
-           
           <div className="product_cards" key={item.id}>
             <div className="card_item">
-              <img src={item.image} alt="nothing but a bottle of wine" />
-              <div className="slide_wrapper" id="font_nanum">
+              <img
+                src={item.image}
+                alt="nothing but a bottle of wine"
+                onClick={() => navigate(`/details/${item.id}`)}
+                style={{ cursor: "pointer" }}
+              />
+              <div
+                className="slide_wrapper"
+                id="font_nanum"
+                onClick={() => navigate(`/details/${item.id}`)}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="relative">
                   <h3>{item.name}</h3>
                 </div>
@@ -38,12 +36,10 @@ const ProductCard = ({ currentData }) => {
                 DISCOVER
               </button>
             </div>
-        
-
           </div>
         ))
       ) : (
-        <Loaders/>
+        <h2 style={{ color: "white", marginTop: "100px" }}>No products found</h2>
       )}
     </div>
   );
