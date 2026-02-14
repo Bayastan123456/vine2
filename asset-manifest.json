@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/vine2/static/css/main.b92f8445.css",
-    "main.js": "/vine2/static/js/main.d236c5ac.js",
-    "static/media/Diamant-2018-300.png": "/vine2/static/media/Diamant-2018-300.23c950690c85d25b2570.png",
+    "main.css": "/vine2/static/css/main.0e20a9ad.css",
+    "main.js": "/vine2/static/js/main.d02fbf44.js",
     "static/media/13.png": "/vine2/static/media/13.a558c7a41c8ec608120f.png",
     "static/media/14.png": "/vine2/static/media/14.d7f1f93edb3771f52d74.png",
     "static/media/imageLogo.png": "/vine2/static/media/imageLogo.52001bf7cf75a9e367e0.png",
@@ -19,11 +18,11 @@
     "static/media/shield_person_FILL1_wght400_GRAD0_opsz48.svg": "/vine2/static/media/shield_person_FILL1_wght400_GRAD0_opsz48.c80e9942e3e8ce7f00d693e83ac94c22.svg",
     "index.html": "/vine2/index.html",
     "static/media/delete_FILL0_wght400_GRAD0_opsz48.svg": "/vine2/static/media/delete_FILL0_wght400_GRAD0_opsz48.05eba52e3ac906f48d6c5f729b4d6a56.svg",
-    "main.b92f8445.css.map": "/vine2/static/css/main.b92f8445.css.map",
-    "main.d236c5ac.js.map": "/vine2/static/js/main.d236c5ac.js.map"
+    "main.0e20a9ad.css.map": "/vine2/static/css/main.0e20a9ad.css.map",
+    "main.d02fbf44.js.map": "/vine2/static/js/main.d02fbf44.js.map"
   },
   "entrypoints": [
-    "static/css/main.b92f8445.css",
-    "static/js/main.d236c5ac.js"
+    "static/css/main.0e20a9ad.css",
+    "static/js/main.d02fbf44.js"
   ]
 }
