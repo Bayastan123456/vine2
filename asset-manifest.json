@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/vine2/static/css/main.0e20a9ad.css",
+    "main.css": "/vine2/static/css/main.54f4b869.css",
     "main.js": "/vine2/static/js/main.d02fbf44.js",
     "static/media/13.png": "/vine2/static/media/13.a558c7a41c8ec608120f.png",
     "static/media/14.png": "/vine2/static/media/14.d7f1f93edb3771f52d74.png",
@@ -18,11 +18,11 @@
     "static/media/shield_person_FILL1_wght400_GRAD0_opsz48.svg": "/vine2/static/media/shield_person_FILL1_wght400_GRAD0_opsz48.c80e9942e3e8ce7f00d693e83ac94c22.svg",
     "index.html": "/vine2/index.html",
     "static/media/delete_FILL0_wght400_GRAD0_opsz48.svg": "/vine2/static/media/delete_FILL0_wght400_GRAD0_opsz48.05eba52e3ac906f48d6c5f729b4d6a56.svg",
-    "main.0e20a9ad.css.map": "/vine2/static/css/main.0e20a9ad.css.map",
+    "main.54f4b869.css.map": "/vine2/static/css/main.54f4b869.css.map",
     "main.d02fbf44.js.map": "/vine2/static/js/main.d02fbf44.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e20a9ad.css",
+    "static/css/main.54f4b869.css",
     "static/js/main.d02fbf44.js"
   ]
 }
